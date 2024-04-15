@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -18,7 +19,11 @@ export default {
     extend: {
       colors: {
         primary: "#FAC372"
-      }
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+        serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+      },
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],
