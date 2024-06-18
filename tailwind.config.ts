@@ -22,7 +22,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-        serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+        serif: ['"Playfair Display"', 'Sora', ...defaultTheme.fontFamily.serif],
       },
     },
   },
