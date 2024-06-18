@@ -29,12 +29,13 @@
             <div class="flex gap-4">
               <button
                 class="h-16 py-4 px-14 text-center bg-primary font-bold text-xl"
+                @click="handleContact"
               >
                 Lets Talk
               </button>
-              <button class="font-bold underline underline-offset-1 text-xl">
+              <!-- <button class="font-bold underline underline-offset-1 text-xl">
                 Download CV
-              </button>
+              </button> -->
             </div>
           </div>
           <div class="flex justify-end flex-1 items-end">
@@ -184,4 +185,8 @@ const careers: Omit<CareerItem, "number">[] = [
     company: "CV Karya Hidup Sentosa",
   },
 ];
+
+function handleContact(){
+  window.location.href = "mailto:hello@syaad.dev"
+}
 </script>
