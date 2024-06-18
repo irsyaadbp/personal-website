@@ -5,7 +5,7 @@
       :style="{ backgroundImage: `url(${backgroundHeroLight})` }"
     >
       <div>
-        <div class="container flex flex-col justify-center items-start h-36">
+        <div class="container flex flex-col justify-center items-start h-28 lg:h-36">
           <a href="/">
             <h1 class="font-sans font-bold text-4xl">
               syaad.<span class="text-2xl">dev</span>
@@ -14,12 +14,12 @@
         </div>
       </div>
       <div class="container mx-auto h-[calc(100%-9rem)]">
-        <div class="flex gap-2 flex-col lg:flex-row h-full">
-          <div class="flex flex-col justify-center mb-16">
-            <h1 class="font-serif font-bold text-6xl">Irsyaad Budi 👋</h1>
+        <div class="flex gap-2 flex-col lg:flex-row h-full justify-center lg:justify-normal">
+          <div class="flex flex-col justify-center lg:mb-16">
+            <h1 class="font-serif font-bold text-5xl lg:text-6xl">Irsyaad Budi 👋</h1>
             <div class="flex items-center gap-2 mt-6">
               <div class="h-0.5 bg-slate-800 w-24"></div>
-              <p class="fonts-sans font-light text-xl">Frontend Engineer</p>
+              <p class="fonts-sans font-light text-lg lg:text-xl">Frontend Engineer</p>
             </div>
             <p class="lg:w-96 text-gray-500 my-8">
               Hello! I'm an experienced Software Engineer with over
@@ -38,7 +38,7 @@
               </button> -->
             </div>
           </div>
-          <div class="flex justify-end flex-1 items-end">
+          <div class="hidden lg:flex justify-end flex-1 items-end">
             <img
               :src="heroImg"
               style="aspect-ratio: 1/1; width: 85%"
@@ -50,7 +50,7 @@
     </section>
     <section class="min-h-screen bg-[#F1F3F5] relative flex">
       <div
-        class="h-20 bg-primary border-t border-b border-black"
+        class="h-20 bg-primary border-t border-b border-black hidden lg:block"
         style="
           transform: rotateZ(-3deg);
           position: absolute;
@@ -88,8 +88,8 @@
         </div>
       </div>
 
-      <div class="pt-[210px] flex-1 pb-12">
-        <div class="container grid md:grid-cols-2 h-full gap-6 md:gap-32">
+      <div class="pt-12 lg:pt-[210px] flex-1 pb-12">
+        <div class="container grid lg:grid-cols-2 h-full gap-12 lg:gap-32">
           <div class="flex flex-col flex-1">
             <h3
               style="
