@@ -150,7 +150,7 @@ const { yearsOfCareer } = useDate();
 const careers: Omit<CareerItem, "number">[] = [
   {
     title: "Mid. Frontend Engineer",
-    startDate: "2019-02-01T00:00:00+07:00",
+    startDate: "2021-07-01T00:00:00+07:00",
     endDate: "present",
     company: "PrivyID",
   },
