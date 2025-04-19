@@ -1,4 +1,5 @@
 ---
+import Hero from "@/components/pages/home/hero";
 import Main from "@/layouts/main.astro";
 
 const content = {
@@ -7,11 +8,5 @@ const content = {
 ---
 
 <Main content={content}>
-  <div class="h-screen">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-24">
-      <div class="lg:col-span-3">
-        <h1 class="text-5xl sm:text-6xl font-bold mb-6">I'm Irsyaad Budi</h1>
-      </div>
-    </div>
-  </div>
+  <Hero client:load />
 </Main>
