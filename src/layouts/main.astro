@@ -2,10 +2,12 @@
 import Header from "@/components/layout/header";
 import "../styles/global.css";
 const { content } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <script is:inline define:vars={{ keyTheme: import.meta.env.PUBLIC_KEY_THEME }}>
   const theme = localStorage.getItem(keyTheme) || "dark";
+
   const isDark =
     theme === "dark" ||
     (theme === "system" &&
@@ -23,12 +25,12 @@ const { content } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="min-h-screen">
-    <Header client:load />
+    <Header client:load activePath={pathname} />
     <slot />
   </body>
 </html>

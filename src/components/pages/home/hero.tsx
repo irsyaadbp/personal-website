@@ -13,19 +13,19 @@ function Hero() {
     alert("Coming Soon");
   }
   return (
-    <div className="h-screen pt-20 md:pt-40 container mx-auto px-4">
+    <div className="h-screen pt-20 md:pt-40 container mx-auto px-4 flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-24">
         <div className="lg:col-span-3">
-          <span className="text-zinc-400 text-lg sm:text-xl">Hello,</span>
+          <span className="text-zinc-400 text-lg sm:text-xl">Hi,</span>
           <h1 className="text-4xl sm:text-6xl font-bold mt-2 mb-6">
             I'm Irsyaad Budi 👋
           </h1>
           <p className="text-lg sm:text-xl text-zinc-400 mb-8 leading-relaxed">
-            Full-time frontend engineer, part-time full stack (which of course
-            means I also deal with backend when needed). Sometimes forced to be
-            a mobile dev, occasionally ends up deploying things. I also mentor
-            other developers and love sharing what I’ve learned. Yeah, that’s
-            me!
+            Frontend engineer by day, backend warrior by night, accidental
+            mobile dev on weekends, and unwilling DevOps every time something
+            needs to be deployed. I mentor devs not because I’m wise, but to
+            help them avoid my mistakes—or at least make cooler ones. Fueled by
+            caffeine, memes, and a healthy dose of imposter syndrome.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" onClick={handleClick}>

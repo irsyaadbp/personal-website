@@ -5,13 +5,12 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
 import { Moon, Sun } from "lucide-react";
 
-const Header = () => {
+const Header = ({ activePath = "" }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activePath, setActivePath] = useState("/");
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const { setTheme, theme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -37,10 +36,6 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
-
-    if (window.location.pathname) {
-      setActivePath(window.location.pathname);
-    }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
