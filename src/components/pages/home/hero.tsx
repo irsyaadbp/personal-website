@@ -10,7 +10,7 @@ import {
 
 function Hero() {
   function handleClick() {
-    alert("cooming soon");
+    alert("Coming Soon");
   }
   return (
     <div className="h-screen pt-20 md:pt-40 container mx-auto px-4">
