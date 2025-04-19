@@ -1,16 +1,27 @@
 ---
-import '../styles/global.css';
+import Header from "@/components/layout/header";
+import "../styles/global.css";
 const { content } = Astro.props;
 ---
 
+<script is:inline define:vars={{ keyTheme: import.meta.env.PUBLIC_KEY_THEME }}>
+  const theme = localStorage.getItem(keyTheme) || "dark";
+  const isDark =
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.classList.toggle("dark", isDark);
+</script>
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{content.title} | syaad.dev</title>
+  </head>
+  <body class="min-h-screen pt-20">
+    <Header client:load />
+    <slot />
+  </body>
 </html>
