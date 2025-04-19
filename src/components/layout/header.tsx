@@ -106,8 +106,8 @@ const Header = () => {
                 className={cn(
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors font-sans",
                   checkActiveMenu(item.path)
-                    ? "text-zinc-600 dark:text-primary"
-                    : "text-zinc-400 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    ? "text-lime-500 dark:text-primary"
+                    : "text-zinc-500 hover:text-lime-500 dark:text-zinc-500 dark:hover:text-primary"
                 )}
               >
                 {item.name}
@@ -165,8 +165,8 @@ const Header = () => {
                   className={cn(
                     "flex items-center px-4 py-3 rounded-md text-sm font-medium transition-colors font-sans",
                     checkActiveMenu(item.path)
-                      ? "text-zinc-400 dark:text-primary bg-zinc-100 dark:bg-zinc-800"
-                      : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                      ? "text-lime-500 dark:text-primary bg-zinc-100 dark:bg-zinc-800"
+                      : "text-zinc-500 hover:text-lime-500 dark:text-zinc-500 dark:hover:text-primary hover:bg-zinc-100 dark:hover:bg-zinc-800"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
