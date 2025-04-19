@@ -119,6 +119,10 @@
   }
 }
 
+@theme {
+  --font-sans: 'Outfit', 'sans-serif';
+}
+
 button {
   @apply cursor-pointer;
 }
