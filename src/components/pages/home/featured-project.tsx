@@ -1,10 +1,17 @@
-import { BellIcon, Share2Icon, FileTextIcon, CalendarIcon } from "lucide-react";
+import {
+  BellIcon,
+  Share2Icon,
+  FileTextIcon,
+  CalendarIcon,
+  ArrowRight,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 // import div from "@/component/example/animated-beam-multiple-outputs";
 // import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { Marquee } from "@/components/magicui/marquee";
+import { Button } from "@/components/ui/button";
 
 const files = [
   {
@@ -103,12 +110,21 @@ const features = [
 export default function FeaturedProject() {
   return (
     <section className="container mx-auto px-4 py-12">
-        <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">Featured Project</h2>
+      <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">
+        Featured Project
+      </h2>
       <BentoGrid>
         {features.map((feature, idx) => (
           <BentoCard key={idx} {...feature} />
         ))}
       </BentoGrid>
+      <div className="flex justify-center mt-12">
+        <a href="/projects">
+          <Button variant="outline" size={"lg"}>
+            See more <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </a>
+      </div>
     </section>
   );
 }
