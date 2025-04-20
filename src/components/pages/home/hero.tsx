@@ -6,6 +6,7 @@ import {
   LinkedinIcon,
   FileHeart,
   TwitterIcon,
+  InstagramIcon,
 } from "lucide-react";
 
 function Hero() {
@@ -55,6 +56,15 @@ function Hero() {
                 <TwitterIcon />
               </a>
             </Button>
+              <Button variant="ghost" size="lg" className="text-zinc-400">
+                <a
+                  href="https://www.instagram.com/irsyaadbp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramIcon />
+                </a>
+              </Button>
             <Button variant="ghost" size="lg" className="text-zinc-400">
               <a
                 href="https://www.linkedin.com/in/irsyaad-budi/"
