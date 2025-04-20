@@ -119,6 +119,11 @@
   }
 }
 
+@font-face {
+  font-family: "Pixelify Sans",  "sans-serif";
+  src: url("../assets/fonts/PixelifySans.ttf");
+}
+
 @theme {
   --font-sans: "Pixelify Sans", "sans-serif";
 }
