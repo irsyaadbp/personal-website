@@ -139,7 +139,11 @@
 
 @font-face {
   font-family: "Pixelify Sans",  "sans-serif";
-  src: url("../assets/fonts/PixelifySans.ttf");
+  /* src: url("/assets/fonts/PixelifySans.ttf"); */
+  src: url('/assets/fonts/PixelifySans.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
