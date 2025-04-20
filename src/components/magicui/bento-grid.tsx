@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon } from "lucide-react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
