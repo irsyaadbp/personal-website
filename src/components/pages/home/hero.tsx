@@ -17,7 +17,7 @@ function Hero() {
   return (
     <div className="min-h-screen pt-20 md:pt-40 flex justify-around flex-col">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-3">
             <span className="text-zinc-400 text-lg sm:text-xl">Hi,</span>
             <h1 className="text-4xl sm:text-6xl font-bold mt-2 mb-6">

@@ -1,4 +1,5 @@
 ---
+import FeaturedProject from "@/components/pages/home/featured-project";
 import Hero from "@/components/pages/home/hero";
 import Main from "@/layouts/main.astro";
 
@@ -9,4 +10,5 @@ const content = {
 
 <Main content={content}>
   <Hero client:load />
+  <FeaturedProject />
 </Main>
