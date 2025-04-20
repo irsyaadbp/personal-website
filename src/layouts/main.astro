@@ -13,21 +13,42 @@ const { pathname } = Astro.url;
     (theme === "system" &&
       window.matchMedia("(prefers-color-scheme: dark)").matches);
   document.documentElement.classList.toggle("dark", isDark);
+
+  function changeFavicon(url) {
+    const link =
+      document.querySelector("link[rel*='icon']") ||
+      document.createElement("link");
+
+    link.type = "image/svg+xml";
+    link.rel = "icon";
+    link.href = url;
+
+    // Hapus favicon lama (jika ada)
+    const oldLink = document.querySelector("link[rel*='icon']");
+    if (oldLink) {
+      document.head.removeChild(oldLink);
+    }
+
+    document.head.appendChild(link);
+  }
+
+  const icon = {
+    dark: "/favicon.svg",
+    light: "/favicon-light.svg",
+    system: "/favicon.svg",
+  };
+
+  changeFavicon(icon[theme]);
 </script>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{content.title} | syaad.dev</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="min-h-screen">
     <Header client:load activePath={pathname} />
