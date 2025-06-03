@@ -135,6 +135,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  [role*='button'] {
+    @apply cursor-pointer;
+  }
 }
 
 /* cyrillic */

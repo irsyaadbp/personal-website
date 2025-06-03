@@ -48,7 +48,7 @@ const Header = ({ activePath = "" }) => {
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
     { name: "Blog", path: "/blog" },
-    { name: "Discussion", path: "/discussion" },
+    { name: "Yapping", path: "/yapping" },
   ];
 
   function checkActiveMenu(menuPath: string) {

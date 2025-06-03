@@ -115,7 +115,7 @@ export default function FeaturedProject() {
       </h2>
       <BentoGrid>
         {features.map((feature, idx) => (
-          <BentoCard key={idx} {...feature} />
+          <BentoCard key={idx} {...feature} role="button" onClick={() => alert(JSON.stringify(feature))}/>
         ))}
       </BentoGrid>
       <div className="flex justify-center mt-12">
