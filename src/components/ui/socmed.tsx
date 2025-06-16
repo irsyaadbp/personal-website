@@ -11,7 +11,7 @@ import { Button } from "./button";
 export default function Socmed() {
   return (
     <div className="flex mt-3">
-      <Button variant="ghost" size="lg" className="text-zinc-400">
+      <Button variant="ghost" size="lg" className="text-zinc-400" asChild>
         <a
           href="https://github.com/irsyaadbp"
           target="_blank"
@@ -20,7 +20,7 @@ export default function Socmed() {
           <GithubIcon />
         </a>
       </Button>
-      <Button variant="ghost" size="lg" className="text-zinc-400">
+      <Button variant="ghost" size="lg" className="text-zinc-400" asChild>
         <a
           href="mailto:irsyaadbp@gmail.com"
           target="_blank"
@@ -29,7 +29,7 @@ export default function Socmed() {
           <MailsIcon />
         </a>
       </Button>
-      <Button variant="ghost" size="lg" className="text-zinc-400">
+      <Button variant="ghost" size="lg" className="text-zinc-400" asChild>
         <a
           href="https://x.com/irsyaadbp"
           target="_blank"
@@ -38,7 +38,7 @@ export default function Socmed() {
           <TwitterIcon />
         </a>
       </Button>
-      <Button variant="ghost" size="lg" className="text-zinc-400">
+      <Button variant="ghost" size="lg" className="text-zinc-400" asChild>
         <a
           href="https://www.instagram.com/irsyaadbp/"
           target="_blank"
@@ -56,7 +56,7 @@ export default function Socmed() {
           <LinkedinIcon />
         </a>
       </Button>
-      <Button variant="ghost" size="lg" className="text-zinc-400">
+      <Button variant="ghost" size="lg" className="text-zinc-400" asChild>
         <a
           href="https://bit.ly/new-portfolio-irsyaad"
           target="_blank"

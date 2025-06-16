@@ -8,9 +8,8 @@ function AboutHero() {
       <div className="mt-16">
         <div className="border rounded-e-full p-3 inline-flex items-center gap-3">
           <p>Located in Yogyakarta</p>
-          <div className="border border-zinc-100/25 rounded-full w-11 h-11 flex items-center justify-center text-lg">
-            {/* <Globe className="w-6 h-6 text-black animate-spin duration-[100000ms]" /> */}
-            <p className="inline">🇮🇩</p>
+          <div className="border bg-primary rounded-full w-11 h-11 flex items-center justify-center text-lg">
+            <Globe className="w-6 h-6 text-black animate-spin " />
           </div>
         </div>
       </div>
@@ -22,7 +21,7 @@ function AboutHero() {
               <span className="text-primary">Getting Started</span>
             </h2>
             <div className="mt-3">
-              <ShinyButton className="rounded-full px-3.5 py-3">
+              <ShinyButton className="rounded-full px-3.5 py-3 bg-white/90 dark:bg-zinc-900/90 ">
                 <div className="flex gap-3 items-center">
                   <div className="rounded-full bg-primary w-11 h-11">
                     <img
