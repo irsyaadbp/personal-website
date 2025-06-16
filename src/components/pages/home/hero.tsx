@@ -1,14 +1,8 @@
 import { Button } from "@/components/ui/button";
 
-import {
-  ArrowRight,
-  GithubIcon,
-  LinkedinIcon,
-  FileHeart,
-  TwitterIcon,
-  InstagramIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { MarqueeTech } from "./marquee-tech";
+import Socmed from "@/components/ui/socmed";
 
 function Hero() {
   function handleClick() {
@@ -39,53 +33,7 @@ function Hero() {
                 Read my blog{" "}
               </Button>
             </div>
-            <div className="flex mt-3">
-              <Button variant="ghost" size="lg" className="text-zinc-400">
-                <a
-                  href="https://github.com/irsyaadbp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubIcon />
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" className="text-zinc-400">
-                <a
-                  href="https://x.com/irsyaadbp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TwitterIcon />
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" className="text-zinc-400">
-                <a
-                  href="https://www.instagram.com/irsyaadbp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramIcon />
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" className="text-zinc-400">
-                <a
-                  href="https://www.linkedin.com/in/irsyaad-budi/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LinkedinIcon />
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" className="text-zinc-400">
-                <a
-                  href="https://bit.ly/new-portfolio-irsyaad"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FileHeart />
-                </a>
-              </Button>
-            </div>
+            <Socmed />
           </div>
         </div>
       </div>

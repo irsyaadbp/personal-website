@@ -1,4 +1,6 @@
 ---
+import AboutHero from "@/components/pages/about/hero";
+import Experiences from "@/components/pages/about/experiences";
 import Main from "@/layouts/main.astro";
 
 const content = {
@@ -7,5 +9,6 @@ const content = {
 ---
 
 <Main content={content}>
-  <div class="min-h-screen pt-20 container mx-auto px-4 text-center">Coming Soon</div>
+  <AboutHero client:load />
+  <Experiences client:load />
 </Main>
