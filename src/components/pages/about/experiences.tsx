@@ -216,12 +216,12 @@ const experiences: TimelineItemProps[] = [
 export default function Experiences() {
   return (
     <section className="relative min-h-screen">
-      <div className="container mx-auto px-4 py-6 flex flex-col lg:flex-row gap-4">
-        <div className="flex gap-4 flex-col items-start w-full lg:w-2/3">
-          <div className="rounded-lg p-3 border">
+      <div className="container mx-auto px-4 py-6 flex flex-col xl:flex-row gap-4">
+        <div className="flex gap-4 flex-col items-start w-full xl:w-2/3">
+          <div className="rounded-xl: p-3 border">
             <BriefcaseBusiness />
           </div>
-          <h2 className="text-xl lg:text-2xl font-bold ">My Experiences</h2>
+          <h2 className="text-xl xl::text-2xl font-bold ">My Experiences</h2>
         </div>
         <Timeline items={experiences} />
       </div>

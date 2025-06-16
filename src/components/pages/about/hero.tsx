@@ -1,14 +1,15 @@
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import Socmed from "@/components/ui/socmed";
-
+const yearNow = new Date().getFullYear();
+const yearExperience = yearNow - 2019;
 function AboutHero() {
   return (
     <section className="min-h-screen flex pt-20 relative">
       <div className="container mx-auto px-4 py-6 flex-1 flex flex-col justify-evenly">
-        <div className="grid lg:grid-cols-2 gap-4 mt-6">
+        <div className="grid xl:grid-cols-2 gap-4 mt-6">
           <div className="flex flex-col gap-4">
             <h2 className="text-7xl lg:text-8xl font-bold mx-auto">
-              6 Years In Still Just{" "}
+              {yearExperience} Years In Still Just{" "}
               <span className="text-primary">Getting Started</span>
             </h2>
             <div className="mt-3">
