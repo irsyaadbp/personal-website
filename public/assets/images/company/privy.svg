@@ -1,0 +1,14 @@
+<svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" style="display:block" width="160" height="100">
+  <circle cx="65.9991" cy="48.9991" r="48.9991" fill="#E42E2C"/>
+  <circle cx="65.9991" cy="48.9991" r="48.9991" fill="url(#paint0_linear_311_913)" fill-opacity="0.2" style="mix-blend-mode:multiply"/>
+  <path d="M89.5451 91.9094C95.4159 88.6921 100.587 84.3179 104.742 79.0533L157.754 11.9274C152.141 7.49509 145.731 4.1871 138.887 2.19235C132.044 0.197594 124.901 -0.444885 117.868 0.301623C110.835 1.04813 103.91 2.83616 97.8975 6.5431C95.2349 8.18463 94.1081 9.63089 92.2087 12.0687L92.0936 12.2165L33.8423 85.9778C38.8203 90.3504 44.6457 93.6506 50.9638 95.6775C57.282 97.7044 63.9607 98.4156 70.5935 97.7678C77.2262 97.12 83.6743 95.1268 89.5451 91.9094Z" fill="#E42E2C"/>
+  <defs>
+    <linearGradient id="paint0_linear_311_913" x1="65.9991" y1="48.9991" x2="46.0728" y2="32.3394" gradientUnits="userSpaceOnUse">
+      <stop offset="0.157792"/>
+      <stop offset="0.366183" stop-opacity="0.75"/>
+      <stop offset="0.572837" stop-opacity="0.5"/>
+      <stop offset="0.801512" stop-opacity="0.25"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

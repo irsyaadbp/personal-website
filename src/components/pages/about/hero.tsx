@@ -1,19 +1,10 @@
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import Socmed from "@/components/ui/socmed";
-import { Globe } from "lucide-react";
 
 function AboutHero() {
   return (
-    <section className=" pt-20 relative">
-      <div className="mt-16">
-        <div className="border rounded-e-full p-3 inline-flex items-center gap-3">
-          <p>Located in Yogyakarta</p>
-          <div className="border bg-primary rounded-full w-11 h-11 flex items-center justify-center text-lg">
-            <Globe className="w-6 h-6 text-black animate-spin " />
-          </div>
-        </div>
-      </div>
-      <div className="container mx-auto px-4 py-6">
+    <section className="min-h-screen flex pt-20 relative">
+      <div className="container mx-auto px-4 py-6 flex-1 flex flex-col justify-evenly">
         <div className="grid lg:grid-cols-2 gap-4 mt-6">
           <div className="flex flex-col gap-4">
             <h2 className="text-7xl lg:text-8xl font-bold mx-auto">
@@ -63,7 +54,7 @@ function AboutHero() {
             <Socmed />
           </div>
         </div>
-        <div className="h-[0.1px] bg-border my-12"></div>
+        <div className="h-[0.1px] bg-border mt-12"></div>
       </div>
     </section>
   );
