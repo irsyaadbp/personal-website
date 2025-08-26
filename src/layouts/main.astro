@@ -1,7 +1,7 @@
 ---
 import Header from "@/components/layout/header";
 import "../styles/global.css";
-const { content } = Astro.props;
+const { content, style } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
@@ -49,8 +49,12 @@ const { pathname } = Astro.url;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen" style={style}>
     <Header client:load activePath={pathname} />
     <slot />
   </body>

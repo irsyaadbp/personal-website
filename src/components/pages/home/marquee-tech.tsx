@@ -4,82 +4,82 @@ import { Marquee } from "@/components/magicui/marquee";
 const reviews = [
   {
     name: "React",
-    link: "https://react.dev",
+    // link: "https://react.dev",
     img: "https://avatar.vercel.sh/jack",
   },
   {
     name: "Next",
-    link: "https://nextjs.org",
+    // link: "https://nextjs.org",
     img: "https://avatar.vercel.sh/jill",
   },
   {
     name: "Vue",
-    link: "https://vuejs.org/",
+    // link: "https://vuejs.org/",
     img: "https://avatar.vercel.sh/john",
   },
   {
     name: "Nuxt",
-    link: "https://nuxt.com/",
+    // link: "https://nuxt.com/",
     img: "https://avatar.vercel.sh/jane",
   },
   {
     name: "Astro",
-    link: "https://astro.build/",
+    // link: "https://astro.build/",
     img: "https://avatar.vercel.sh/john",
   },
   {
     name: "Javascript",
-    link: "",
+    // link: "",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
     name: "Typescript",
-    link: "",
+    // link: "",
     img: "https://avatar.vercel.sh/james",
   },
   {
     name: "PHP",
-    link: "https://php.net/",
+    // link: "https://php.net/",
     img: "https://avatar.vercel.sh/jane",
   },
   {
     name: "Laravel",
-    link: "https://laravel.com/",
+    // link: "https://laravel.com/",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
     name: "Wordpress",
-    link: "https://wordpress.org/",
+    // link: "https://wordpress.org/",
     img: "https://avatar.vercel.sh/james",
   },
   {
     name: "PostgreSQL",
-    link: "https://www.postgresql.org/",
+    // link: "https://www.postgresql.org/",
     img: "https://avatar.vercel.sh/jane",
   },
   {
     name: "Firebase",
-    link: "https://firebase.google.com",
+    // link: "https://firebase.google.com",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
     name: "Supabase",
-    link: "https://supabase.com/",
+    // link: "https://supabase.com/",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
     name: "MongoDB",
-    link: "https://www.mongodb.com/",
+    // link: "https://www.mongodb.com/",
     img: "https://avatar.vercel.sh/james",
   },
   {
     name: "Docker",
-    link: "https://www.docker.com/",
+    // link: "https://www.docker.com/",
     img: "https://avatar.vercel.sh/james",
   },
   {
     name: "Linux",
-    link: "https://www.linux.org/",
+    // link: "https://www.linux.org/",
     img: "https://avatar.vercel.sh/james",
   },
 ];
@@ -94,12 +94,12 @@ const ReviewCard = ({
 }: {
   img: string;
   name: string;
-  link: string;
+  // link: string;
 }) => {
   return (
     <figure
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-48 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -112,7 +112,7 @@ const ReviewCard = ({
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
           </figcaption>
-          {!!link && <p className="text-xs font-medium text-zinc-400">{link}</p>}
+          {/* {!!link && <p className="text-xs font-medium text-zinc-400">{link}</p>} */}
         </div>
       </div>
     </figure>

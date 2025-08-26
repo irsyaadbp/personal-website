@@ -24,7 +24,7 @@ const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-3 gap-4",
+        "grid w-full auto-rows-[22rem] grid-cols-2 gap-4",
         className
       )}
       {...props}
@@ -56,13 +56,18 @@ const BentoCard = ({
     )}
     {...props}
   >
-    <div>{background}</div>
+    <div>
+      {typeof background === "string" ? (
+        <img
+          src={background}
+          alt={name}
+          className="absolute top-0 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+        />
+      ) : (
+        background
+      )}
+    </div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover/card:-translate-y-10">
-      <div className="flex gap-1 flex-wrap">
-        {techStack.map((stack, idx) => (
-          <Badge key={`${name}-${stack}-${idx}`}>{stack}</Badge>
-        ))}
-      </div>
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>

@@ -1,0 +1,61 @@
+---
+import Main from "@/layouts/main.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("projects");
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: {
+      post,
+    },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content: Markdown } = await render(post);
+
+const content = {
+  title: post.data.title,
+  description: post.data.description,
+};
+---
+
+<Main content={content}>
+  <div class="min-h-screen pt-32 lg:pt-56 container max-w-7xl mx-auto px-4">
+    <h2 class="text-6xl md:text-8xl font-bold mx-auto">
+      {content.title}
+    </h2>
+    <p class="mt-12 text-zinc-500">
+      {content.description}
+    </p>
+    <hr class="mt-20 mb-12" />
+    <div class="grid grid-cols-1 gap-12">
+      {
+        !!post.data.info && (
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {post.data.info.map((info) => (
+              <div>
+                <h3 class="text-base md:text-lg text-zinc-500 font-bold">
+                  {info.title}
+                </h3>
+                <p class="text-lg md:text-2xl font-bold mt-1">
+                  {info.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      <img
+        src={post.data.image}
+        alt="CIMB Niaga Mortgage Application"
+        class="w-full h-auto"
+      />
+
+      <Markdown />
+    </div>
+  </div>
+</Main>
