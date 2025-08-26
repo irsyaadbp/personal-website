@@ -19,7 +19,6 @@ function mergeClassName(existing: unknown, add: string[] = []): string[] {
 
 export function markdownRender() {
   return (tree: Root) => {
-    console.log({ tree });
     const newChildren: Node[] = [];
     let section: Node | null = null;
 
