@@ -22,15 +22,17 @@ info:
 
 ## Overview
 
-As a mentor in this Fastcampus program, I guided learners through the journey of becoming professional fullstack developers. The curriculum spans **263 video lessons (58+ hours)**, covering PHP, Laravel, Vue.js, Nuxt.js, and supporting technologies like MySQL, Nginx, and Postman. My role was to mentor students in both backend and frontend practices while ensuring they could apply concepts through hands-on projects such as building an e-commerce platform and a multilingual company profile website.
+As a mentor in this Fastcampus program, I collaborated with Aziz Hapidin (Laravel/backend mentor) to guide learners on their journey to becoming professional fullstack developers. While Aziz focused on backend concepts with Laravel, I mentored students in frontend, deployment, and integration practices.
+
+The program spanned **263 video lessons (58+ hours)**, covering PHP, Laravel, Vue.js, Nuxt.js, and supporting technologies like MySQL, Nginx, and Postman. Together, we ensured that learners could apply concepts through real-world projects such as e-commerce platforms and multilingual company profile websites.
 
 ## Key Learning Outcomes
 
 - Master PHP fundamentals and MySQL database management.
-- Build scalable backend systems with Laravel (from basic to advanced).
+- Build scalable backend systems with Laravel (mentored by Aziz Hapidin).
 - Develop modern frontend applications with Vue.js and Nuxt.js.
-- Learn component-based architecture and state management with React.
-- Build SEO-friendly, server-side rendered applications with Next.js.
+- Gain exposure to React for component-based architecture and modern frontend practices.
+- Understand how working with both Vue and React reinforces the importance of strong fundamentals — once the basics of JavaScript, state management, and component-driven design are mastered, developers can confidently transition between frameworks.
 - Design and consume REST APIs, integrate authentication, and implement payment gateways.
 - Deploy applications using Nginx, VPS, and remote server setups.
 - Improve website performance with SEO optimization and frontend best practices.
@@ -40,18 +42,27 @@ As a mentor in this Fastcampus program, I guided learners through the journey of
 - **E-commerce Website (Laravel + Vue.js + Nuxt.js)**  
   Mentored students in developing a scalable e-commerce platform, covering authentication, product management, checkout flow, loyalty points, and admin dashboard.
 
-- **Company Profile Website (Laravel + React/Next.js)**  
-  Supervised the development of a multilingual CMS-driven company profile website, including blog features and SEO optimization.
+- **Company Profile Website (Laravel + Vue.js)**  
+  Supervised the development of a multilingual CMS-driven website, including blog features and SEO optimization.
 
 ## Challenges & Mentorship Insights
 
-One key challenge for many students was bridging the gap between backend and frontend thinking. My mentorship focused on:
+One key challenge for many students was bridging the gap between backend and frontend thinking. Through collaboration, we addressed this by:
 
-- Clarifying API design principles and integration testing with Postman.
-- Breaking down complex Laravel features such as Eloquent relationships, queues, and scaling strategies.
-- Helping students structure Vue/Nuxt projects for better maintainability.
-- Coaching on full deployment pipelines, from local development to VPS hosting.
+- Clarifying API design principles and integration testing with Postman.  
+- Breaking down complex Laravel features (with Aziz leading backend mentoring).  
+- Helping students structure Vue/Nuxt projects for maintainability and scalability.  
+- Guiding learners in building component-based architecture with React and showing how strong fundamentals in JavaScript and state management make it easier to adapt across frameworks.  
+- Coaching students on deployment pipelines, from local development to VPS hosting.  
+
+From the mentorship perspective, the main challenges and insights were:  
+
+- Emphasizing that switching between Vue and React highlighted the importance of mastering core fundamentals over framework-specific knowledge.  
+- Coordinating asynchronously with a fellow mentor to align backend and frontend lessons.  
+- Communicating effectively in English with international learners as part of Fastcampus’s global learning environment.  
 
 ## Reflection
 
-Serving as a mentor in this program allowed me to share not only technical knowledge but also industry best practices. I had the opportunity to guide aspiring developers through real-world challenges, ensuring they could confidently build and deploy fullstack applications. This experience reinforced my ability to teach, review code critically, and support the growth of future developers.
+This mentorship experience was not only about teaching technology but also about modeling real-world collaboration. Working with Aziz Hapidin allowed me to focus on frontend and deployment while ensuring backend mentoring was handled expertly.
+
+Additionally, collaborating asynchronously and communicating in English with international learners highlighted the importance of adaptability in a global context. This program reinforced my ability to mentor effectively, review code critically, and support the professional growth of developers in diverse environments.
