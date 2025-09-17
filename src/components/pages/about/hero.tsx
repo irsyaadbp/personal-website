@@ -40,11 +40,15 @@ function AboutHero() {
               aspiring engineers.
             </p>
             <p className="text-zinc-400">
-              Born in 2000, I started my journey through Android and WordPress
-              development in high school. Since then, I’ve built web
-              applications using Vue and React on the frontend, Express and
-              PostgreSQL on the backend, and deployed projects with Docker and
-              GitHub Actions.
+              Born in 2000, I began my journey in tech through Android and
+              WordPress development during high school. My school’s curriculum
+              required three years of study followed by one year of internship,
+              which I completed as part of the IT team at a manufacturing
+              company. This experience exposed me to real-world challenges,
+              strengthened my IT fundamentals, and motivated me to grow further.
+              Since then, I’ve built web applications using Vue and React on the
+              frontend, Express and PostgreSQL on the backend, and deployed
+              projects with Docker and GitHub Actions.
             </p>
             <p className="text-zinc-400">
               I believe great engineers don’t just write code—they understand
