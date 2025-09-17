@@ -55,7 +55,7 @@ const { pathname } = Astro.url;
     />
   </head>
   <body class="min-h-screen" style={style}>
-    <Header client:load activePath={pathname} />
+    <Header client:visible activePath={pathname} />
     <slot />
   </body>
 </html>

@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
-import { Moon, Sun } from "lucide-react";
+
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const Header = ({ activePath = "" }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,17 +111,14 @@ const Header = ({ activePath = "" }) => {
             ))}
 
             {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+
+            <AnimatedThemeToggler
+              isDarkMode={theme === "dark"}
               className="p-2 rounded-full bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </button>
+              setIsDarkMode={(isDarkMode) =>
+                setTheme(isDarkMode ? "dark" : "light")
+              }
+            />
           </nav>
 
           {/* Mobile Logo (centered) */}
@@ -133,17 +131,13 @@ const Header = ({ activePath = "" }) => {
             </a>
           </div>
 
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          <AnimatedThemeToggler
+            isDarkMode={theme === "dark"}
             className="md:hidden p-2 rounded-full bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </button>
+            setIsDarkMode={(isDarkMode) =>
+              setTheme(isDarkMode ? "dark" : "light")
+            }
+          />
         </div>
 
         {/* Mobile Menu */}
