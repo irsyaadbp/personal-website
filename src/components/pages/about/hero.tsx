@@ -10,7 +10,7 @@ function AboutHero() {
           <div className="flex flex-col gap-4">
             <h2 className="text-7xl lg:text-8xl font-bold mx-auto">
               {yearExperience} Years In Still Just{" "}
-              <span className="text-primary">Getting Started</span>
+              <span className="text-primary font-sans">Getting Started</span>
             </h2>
             <div className="mt-3">
               <ShinyButton className="rounded-full px-3.5 py-3 bg-white/90 dark:bg-zinc-900/90 ">
@@ -22,7 +22,7 @@ function AboutHero() {
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <p className="mr-1 capitalize text-lg">
+                  <p className="mr-1 capitalize text-lg font-sans">
                     Irsyaad Budi Prasetianto
                   </p>
                 </div>
@@ -30,7 +30,7 @@ function AboutHero() {
             </div>
           </div>
           <div className="flex flex-col gap-4 text-lg sm:text-xl ">
-            <p>
+            <p className="font-sans">
               <b>Full-stack Engineer</b>
             </p>
             <p className="text-zinc-400">
