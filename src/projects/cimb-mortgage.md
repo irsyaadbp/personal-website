@@ -1,7 +1,7 @@
 ---
 title: "CIMB Niaga Mortgage Application"
 description: "An online mortgage application system built for CIMB Niaga. Includes a conversion-optimized landing page and an internal CMS to manage content and leads efficiently."
-image: "/assets/images/projects/cimb-mortgage/hero.png"
+image: "/assets/images/projects/cimb-mortgage/hero.webp"
 link: "https://apply.cimbniaga.co.id/kpr/form"
 featured: true
 info:
@@ -56,7 +56,7 @@ techniques included:
 - Continuous testing on physical devices and emulators to ensure
   pixel-perfect rendering
 
-![Mobile Design for CIMB Mortgage](/assets/images/projects/cimb-mortgage/mockup-mobile-fix-white@2x.png)
+![Mobile Design for CIMB Mortgage](/assets/images/projects/cimb-mortgage/mockup-mobile-fix-white@2x.webp)
 
 ## Internal CMS
 

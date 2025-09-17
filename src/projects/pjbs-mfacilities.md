@@ -2,7 +2,7 @@
 title: "PJBS Services Application"
 description: "A cross-platform internal mobile application for PT PJBS, built with React Native and TypeScript, available on both iOS and Android. It streamlines daily operations, including vehicle booking, meeting scheduling, office supplies requests, archive management, FAQs, and integrated CMS for monitoring and data management."
 short_description: "A cross-platform internal mobile application for PT PJBS, built with React Native and TypeScript, available on both iOS and Android."
-image: "/assets/images/projects/pjbs-mfacilities/hero@transparent.png"
+image: "/assets/images/projects/pjbs-mfacilities/hero@transparent.webp"
 link: ""
 featured: true
 info:
@@ -58,7 +58,7 @@ The FAQ module provides a centralized help center for employees to find quick an
 
 The CMS is a web-based dashboard, built by the backend team, that allows PJBS administrators to monitor requests, manage master data, and generate reports. It complements the mobile app by giving admins a higher-level view of daily operations. My main focus was the mobile app; CMS development was handled separately by the backend team.
 
-![Mobile Design for CMS Dashboard](/assets/images/projects/pjbs-mfacilities/cms.png)
+![Mobile Design for CMS Dashboard](/assets/images/projects/pjbs-mfacilities/cms.webp)
 
 ## Challenges & Learnings
 
