@@ -190,12 +190,12 @@ button {
   font-style: normal;
 } */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1:not(.font-display),
+h2:not(.font-display),
+h3:not(.font-display),
+h4:not(.font-display),
+h5:not(.font-display),
+h6:not(.font-display) {
   font-family: var(--font-sans);
 }
 
