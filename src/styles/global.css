@@ -199,10 +199,10 @@ h6 {
   font-family: var(--font-sans);
 }
 
-p,
+p:not(.font-sans),
 ul,
 ol,
-span {
+span:not(.font-sans) {
   font-family: var(--font-display);
 }
 

@@ -30,17 +30,6 @@ under five minutes.
 As the Frontend Engineer, I owned the entire Nuxt 2 and Vue 2 codebase
 for both the public landing page and the internal CMS.
 
-## Mobile-First & Responsiveness
-
-The design system was built mobile-first, prioritizing touch-friendly
-controls and single-column layouts for screens down to 375px. Key
-techniques included:
-
-- Media queries to adjust typography, spacing, and component
-  visibility on larger viewports
-- Continuous testing on physical devices and emulators to ensure
-  pixel-perfect rendering
-
 ## Architecture & Tech Stack
 
 - **Nuxt 2** SSR for faster page loads and SEO optimization
@@ -55,6 +44,19 @@ techniques included:
   and rate limiting
 - **LDAP** integration for corporate user authentication and
   provisioning
+
+## Mobile-First & Responsiveness
+
+The design system was built mobile-first, prioritizing touch-friendly
+controls and single-column layouts for screens down to 375px. Key
+techniques included:
+
+- Media queries to adjust typography, spacing, and component
+  visibility on larger viewports
+- Continuous testing on physical devices and emulators to ensure
+  pixel-perfect rendering
+
+![Mobile Design for CIMB Mortgage](/assets/images/projects/cimb-mortgage/mockup-mobile-fix-white@2x.png)
 
 ## Internal CMS
 

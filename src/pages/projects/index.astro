@@ -11,7 +11,7 @@ const projects = await getCollection("projects");
 
 const allProjects: any[] = projects.map((pro) => ({
   name: pro.data.title,
-  description: pro.data.description,
+  description: pro.data.short_description || pro.data.description,
   background: pro.data.image,
   // link: pro.data.link,
   href: `/projects/${pro.id}`,
@@ -29,7 +29,7 @@ const allProjects: any[] = projects.map((pro) => ({
       <BentoGrid>
         {
           allProjects.map((feature, idx) => (
-            <BentoCard key={idx} {...feature} role="button" />
+            <BentoCard key={idx} {...feature} role="button" client:load />
           ))
         }
       </BentoGrid>

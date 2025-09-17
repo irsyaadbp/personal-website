@@ -1,6 +1,7 @@
 ---
 import Main from "@/layouts/main.astro";
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("projects");
@@ -23,8 +24,8 @@ const content = {
 ---
 
 <Main content={content}>
-  <div class="min-h-screen pt-32 lg:pt-56 container max-w-7xl mx-auto px-4">
-    <h2 class="text-6xl md:text-8xl font-bold mx-auto">
+  <div class="min-h-screen py-32 lg:pt-56 container max-w-5xl mx-auto px-4 leading-8">
+    <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mx-auto">
       {content.title}
     </h2>
     <p class="mt-12 text-zinc-500">
@@ -49,10 +50,16 @@ const content = {
         )
       }
 
-      <img
+      <Image
         src={post.data.image}
-        alt="CIMB Niaga Mortgage Application"
+        alt={`Poster ${content.title}`}
         class="w-full h-auto"
+        loading="lazy"
+        decoding="async"
+        width={1248}
+        widths={[380, 720, 1024, 1248]}
+        height={832}
+        quality={80}
       />
 
       <Markdown />

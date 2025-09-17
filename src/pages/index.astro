@@ -4,16 +4,18 @@ import Hero from "@/components/pages/home/hero";
 import Main from "@/layouts/main.astro";
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects", (project) => project.data.featured);
-const features = projects
-  .map((pro) => ({
-    name: pro.data.title,
-    description: pro.data.description,
-    background: pro.data.image,
-    href: `/projects/${pro.id}`,
-    cta: "View detail",
-    className: "col-span-1",
-  }));
+const projects = await getCollection(
+  "projects",
+  (project) => project.data.featured
+);
+const features = projects.map((pro) => ({
+  name: pro.data.title,
+  description: pro.data.short_description || pro.data.description,
+  background: pro.data.image,
+  href: `/projects/${pro.id}`,
+  cta: "View detail",
+  className: "col-span-1",
+}));
 
 const content = {
   title: "Homepage",
