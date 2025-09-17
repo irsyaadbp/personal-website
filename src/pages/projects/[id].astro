@@ -2,6 +2,8 @@
 import Main from "@/layouts/main.astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 export async function getStaticPaths() {
   const posts = await getCollection("projects");
@@ -24,14 +26,36 @@ const content = {
 ---
 
 <Main content={content}>
-  <div class="min-h-screen py-32 lg:pt-56 container max-w-5xl mx-auto px-4 leading-8">
+  <div
+    class="min-h-screen py-32 lg:pt-56 container max-w-5xl mx-auto px-4 leading-8"
+  >
     <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mx-auto">
       {content.title}
     </h2>
     <p class="mt-12 text-zinc-500">
       {content.description}
     </p>
-    <hr class="mt-20 mb-12" />
+
+    {
+      !!post.data.link && (
+        <div class="mt-10 flex justify-end">
+          <a
+            href={post.data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(
+              "inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors",
+              "underline underline-offset-4 decoration-1 hover:decoration-2",
+              "group "
+            )}
+          >
+            <span>View Project</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
+      )
+    }
+    <hr class="mt-10 mb-12" />
     <div class="grid grid-cols-1 gap-12">
       {
         !!post.data.info && (
