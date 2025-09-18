@@ -3,7 +3,6 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Badge } from "../ui/badge";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
@@ -24,7 +23,7 @@ const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-2 gap-4",
+        "grid w-full auto-rows-[16rem] lg:auto-rows-[22rem] grid-cols-2 gap-4",
         className
       )}
       {...props}
@@ -62,7 +61,7 @@ const BentoCard = ({
         <img
           src={background}
           alt={name}
-          className="absolute top-0 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+          className="absolute top-0 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)]"
         />
       ) : (
         background
@@ -72,7 +71,7 @@ const BentoCard = ({
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
-      <p className="text-neutral-400">{description}</p>
+      <p className="text-neutral-400 line-clamp-2 lg:line-clamp-3">{description}</p>
     </div>
 
     <div
