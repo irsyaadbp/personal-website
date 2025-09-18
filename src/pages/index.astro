@@ -8,14 +8,27 @@ const projects = await getCollection(
   "projects",
   (project) => project.data.featured
 );
-const features = projects.map((pro) => ({
-  name: pro.data.title,
-  description: pro.data.short_description || pro.data.description,
-  background: pro.data.image,
-  href: `/projects/${pro.id}`,
-  cta: "View detail",
-  className: "lg:col-span-1",
-}));
+const features = projects
+  .sort((a, b) => {
+    const yearA = a.data.info?.find(
+      (info: any) => info.title === "Year"
+    )?.description;
+    const yearB = b.data.info?.find(
+      (info: any) => info.title === "Year"
+    )?.description;
+    if (yearA && yearB) {
+      return Number(yearB) - Number(yearA);
+    }
+    return 0;
+  })
+  .map((pro) => ({
+    name: pro.data.title,
+    description: pro.data.short_description || pro.data.description,
+    background: pro.data.image,
+    href: `/projects/${pro.id}`,
+    cta: "View detail",
+    className: "lg:col-span-1",
+  }));
 
 const content = {
   title: "Homepage",
