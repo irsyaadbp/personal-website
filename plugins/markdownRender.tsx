@@ -17,6 +17,115 @@ function mergeClassName(existing: unknown, add: string[] = []): string[] {
   return [...add];
 }
 
+function isExternalLink(href: unknown): boolean {
+  if (typeof href !== "string") return false;
+  // anggap eksternal kalau mulai dengan http/https
+  return /^https?:\/\//i.test(href);
+}
+
+function createArrowUpRightIcon(): Node {
+  // Inline SVG mirip lucide "ArrowUpRight"
+  return {
+    type: "element",
+    tagName: "svg",
+    properties: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-width": 2,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      className: [
+        "h-4",
+        "w-4",
+        "transition-transform",
+        "group-hover:translate-x-0.5",
+        "group-hover:-translate-y-0.5",
+      ],
+      "aria-hidden": "true",
+      focusable: "false",
+    },
+    children: [
+      // diagonal arrow
+      {
+        type: "element",
+        tagName: "path",
+        properties: { d: "M7 17L17 7" },
+        children: [],
+      },
+      // top horizontal
+      {
+        type: "element",
+        tagName: "path",
+        properties: { d: "M7 7h10" },
+        children: [],
+      },
+      // right vertical
+      {
+        type: "element",
+        tagName: "path",
+        properties: { d: "M17 7v10" },
+        children: [],
+      },
+    ],
+  };
+}
+
+function wrapLinkNode(node: Node) {
+  const props = node.properties || {};
+  const href = props.href;
+
+  // tambahkan atribut target/rel untuk semua link eksternal;
+  // kalau mau paksa semua link, hapus kondisi isExternalLink
+  if (isExternalLink(href)) {
+    props.target = "_blank";
+    props.rel = "noopener noreferrer";
+  }
+
+  // kelas Tailwind sesuai yang kamu mau
+  props.className = mergeClassName(props.className, [
+    "inline-flex",
+    "items-center",
+    "gap-0.5",
+    "text-foreground",
+    "hover:text-primary",
+    "transition-colors",
+    "underline",
+    "underline-offset-4",
+    "decoration-1",
+    "hover:decoration-2",
+    "group font-bold",
+  ]);
+
+  // bungkus children lama ke dalam <span>, lalu tambahkan ikon
+  const originalChildren = node.children ?? [];
+  node.children = [
+    {
+      type: "element",
+      tagName: "span",
+      properties: {},
+      children: originalChildren,
+    },
+    createArrowUpRightIcon(),
+  ];
+
+  node.properties = props;
+}
+
+/**
+ * Rekursif traversal untuk memodifikasi <a> dimanapun posisinya.
+ */
+function visitAndTransformLinks(node: Node) {
+  // console.log("transforming link", node);
+  if (node.type === "element" && node.tagName === "a") {
+    wrapLinkNode(node);
+  }
+  if (Array.isArray(node.children)) {
+    for (const child of node.children) visitAndTransformLinks(child);
+  }
+}
+
 export function markdownRender() {
   return (tree: Root) => {
     const newChildren: Node[] = [];
@@ -65,11 +174,18 @@ export function markdownRender() {
       } else if (section) {
         section.children!.push(node);
       } else {
+        console.log("pushing node", node);
         newChildren.push(node);
       }
     }
 
     if (section) newChildren.push(section);
     tree.children = newChildren;
+
+    
+    // --- tahap 2: transform semua <a> jadi versi custom ---
+    for (const child of tree.children) {
+      visitAndTransformLinks(child);
+    }
   };
 }
