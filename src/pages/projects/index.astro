@@ -1,7 +1,7 @@
 ---
 import Main from "@/layouts/main.astro";
 import { getCollection } from "astro:content";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const content = {
   title: "Projects",
@@ -35,7 +35,11 @@ const allProjects: any[] = projects
 
 <Main
   content={content}
-  style={{ backgroundImage: "url('/assets/images/projects/line.svg')" }}
+  style={{
+    backgroundImage: "url('/assets/images/projects/line-black.svg')",
+    backgroundRepeat: "repeat",
+    backgroundPosition: "center",
+  }}
 >
   <div class="min-h-screen py-24 md:py-32 lg:py-40 container mx-auto px-4">
     <div class="max-w-7xl mx-auto">

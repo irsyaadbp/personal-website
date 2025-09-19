@@ -1,4 +1,4 @@
-import { ShinyButton } from "@/components/magicui/shiny-button";
+import { ShinyButton } from "@/components/ui/shiny-button";
 import Socmed from "@/components/ui/socmed";
 const yearNow = new Date().getFullYear();
 const yearExperience = yearNow - 2019;

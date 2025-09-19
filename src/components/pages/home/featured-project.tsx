@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
 
 export default function FeaturedProject({ posts = [] }: { posts: any[] }) {
