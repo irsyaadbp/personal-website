@@ -30,7 +30,7 @@ function Hero() {
               </Button>
               <Button variant="outline" size="lg" onClick={handleClick}>
                 {" "}
-                Read my blog{" "}
+                Read my writings{" "}
               </Button>
             </div>
             <Socmed />

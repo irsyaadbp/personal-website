@@ -48,7 +48,7 @@ const Header = ({ activePath = "" }) => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
-    { name: "Blog", path: "/blog" },
+    { name: "Writings", path: "/writings" },
     { name: "Yapping", path: "/yapping" },
   ];
 
