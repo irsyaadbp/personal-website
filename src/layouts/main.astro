@@ -1,5 +1,5 @@
 ---
-import { ClientRouter, fade } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import Header from "@/components/layout/header";
 import "../styles/global.css";
@@ -43,7 +43,7 @@ const { pathname } = Astro.url;
   changeFavicon(icon[theme]);
 </script>
 
-<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
+<html lang="en" transition:animate="fade">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
