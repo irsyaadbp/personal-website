@@ -62,6 +62,7 @@ const BentoCard = ({
           src={background}
           alt={name}
           className="absolute top-0 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)]"
+          loading="lazy"
         />
       ) : (
         background

@@ -54,6 +54,7 @@ const TimelineItem = ({
                   width: "auto",
                   ...(company.customStyle || {}),
                 }}
+                loading="lazy"
                 draggable={false}
               />
               {company.name}

@@ -20,6 +20,7 @@ function AboutHero() {
                       src="/assets/images/photo.png"
                       alt="Irsyaad Budi Prasetianto"
                       className="w-full h-full object-cover rounded-full"
+                      loading="lazy"
                     />
                   </div>
                   <p className="mr-1 capitalize text-lg font-sans">
