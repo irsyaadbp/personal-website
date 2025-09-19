@@ -16,6 +16,7 @@ export default function Socmed() {
           href="https://github.com/irsyaadbp"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub"
         >
           <GithubIcon />
         </a>
@@ -25,6 +26,7 @@ export default function Socmed() {
           href="mailto:irsyaadbp@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Email"
         >
           <MailsIcon />
         </a>
@@ -34,6 +36,7 @@ export default function Socmed() {
           href="https://x.com/irsyaadbp"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Twitter"
         >
           <TwitterIcon />
         </a>
@@ -43,6 +46,7 @@ export default function Socmed() {
           href="https://www.instagram.com/irsyaadbp/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Instagram"
         >
           <InstagramIcon />
         </a>
@@ -52,6 +56,7 @@ export default function Socmed() {
           href="https://www.linkedin.com/in/irsyaad-budi/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
           <LinkedinIcon />
         </a>
@@ -61,6 +66,7 @@ export default function Socmed() {
           href="https://bit.ly/new-portfolio-irsyaad"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Portfolio"
         >
           <FileHeart />
         </a>

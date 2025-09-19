@@ -90,14 +90,13 @@ const secondRow = reviews.slice(reviews.length / 2);
 const ReviewCard = ({
   img,
   name,
-  link,
 }: {
   img: string;
   name: string;
   // link: string;
 }) => {
   return (
-    <figure
+    <div
       className={cn(
         "relative h-full w-48 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
@@ -107,15 +106,21 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} loading="lazy" />
-        <div className="flex flex-col">
+        <img
+          className="rounded-full"
+          width="32"
+          height="32"
+          alt=""
+          src={img}
+          loading="lazy"
+        />
+        <figure>
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
           </figcaption>
-          {/* {!!link && <p className="text-xs font-medium text-zinc-400">{link}</p>} */}
-        </div>
+        </figure>
       </div>
-    </figure>
+    </div>
   );
 };
 
