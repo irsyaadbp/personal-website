@@ -72,7 +72,9 @@ const BentoCard = ({
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
-      <p className="text-neutral-400 line-clamp-2 lg:line-clamp-3">{description}</p>
+      <p className="text-neutral-400 line-clamp-2 lg:line-clamp-3">
+        {description}
+      </p>
     </div>
 
     <div
@@ -80,11 +82,14 @@ const BentoCard = ({
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100"
       )}
     >
-      <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-        <a href={href}>
-          {cta}
-          <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
-        </a>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="pointer-events-auto"
+        role="button"
+      >
+        {cta}
+        <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
       </Button>
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover/card:bg-black/[.03] group-hover/card:dark:bg-neutral-800/10" />
