@@ -3,7 +3,7 @@ title: "CIMB Niaga Mortgage Application"
 description: "An online mortgage application system built for CIMB Niaga. Includes a conversion-optimized landing page and an internal CMS to manage content and leads efficiently."
 image: "/assets/images/projects/cimb-mortgage/hero.webp"
 link: "https://apply.cimbniaga.co.id/kpr/form"
-featured: true
+featured: false
 info:
   - title: "Client"
     description: "CIMB Niaga"
