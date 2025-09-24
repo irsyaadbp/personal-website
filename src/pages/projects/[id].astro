@@ -21,8 +21,8 @@ const { Content: Markdown } = await render(post);
 
 const content = {
   title: post.data.title,
-  description: post.data.description,
-  image: post.data.image,
+  description: post.data.short_description || post.data.description,
+  image: `${Astro.url.origin}${post.data.image}`,
   url: `${Astro.url.origin}/projects/${post.id}`,
 };
 ---
