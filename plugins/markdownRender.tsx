@@ -92,9 +92,9 @@ function wrapLinkNode(node: Node) {
     "hover:text-primary",
     "transition-colors",
     "underline",
-    "underline-offset-4",
-    "decoration-1",
-    "hover:decoration-2",
+    "underline-offset-8",
+    "decoration-1 decoration-dashed",
+    "hover:decoration-2 hover:decoration-solid",
     "group font-bold",
   ]);
 
