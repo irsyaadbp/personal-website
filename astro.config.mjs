@@ -15,4 +15,5 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [markdownRender],
   },
+  site: 'https://syaad.dev',
 });
