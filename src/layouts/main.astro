@@ -43,6 +43,20 @@ const { pathname } = Astro.url;
   changeFavicon(icon[theme]);
 </script>
 
+<!-- Google Tag Manager -->
+<script is:inline>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-MHTKR5J6");
+</script>
+<!-- End Google Tag Manager -->
 <html lang="en" transition:animate="fade">
   <head>
     <meta charset="utf-8" />
@@ -71,6 +85,15 @@ const { pathname } = Astro.url;
     <ClientRouter />
   </head>
   <body class="min-h-screen" style={style}>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MHTKR5J6"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Header client:visible activePath={pathname} />
     <slot />
   </body>
