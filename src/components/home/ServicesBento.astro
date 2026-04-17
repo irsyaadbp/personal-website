@@ -1,0 +1,133 @@
+---
+import { t, type Locale } from '../../i18n';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+interface Service {
+  title: string;
+  body: string;
+  subject: string;
+}
+
+const services: Record<Locale, Service[]> = {
+  en: [
+    {
+      title: 'Frontend Engineering',
+      body: 'Pixel-perfect, accessible UIs in React, Vue, Nuxt, and Astro — with a focus on DX and performance.',
+      subject: 'Frontend Engineering inquiry',
+    },
+    {
+      title: 'Full-stack Development',
+      body: 'Laravel, Node, and PostgreSQL-powered APIs paired with modern, typed frontends.',
+      subject: 'Full-stack Development inquiry',
+    },
+    {
+      title: 'Mobile Development',
+      body: 'Cross-platform apps in React Native shipped to iOS and Android.',
+      subject: 'Mobile Development inquiry',
+    },
+    {
+      title: 'Mentoring & Curriculum',
+      body: 'Teaching developers how to go from zero to production, with real-world projects.',
+      subject: 'Mentoring inquiry',
+    },
+  ],
+  id: [
+    {
+      title: 'Frontend Engineering',
+      body: 'UI yang akurat dan aksesibel dengan React, Vue, Nuxt, dan Astro — fokus pada DX dan performa.',
+      subject: 'Permintaan Frontend Engineering',
+    },
+    {
+      title: 'Full-stack Development',
+      body: 'API berbasis Laravel, Node, dan PostgreSQL dipadukan dengan frontend modern dan ter-type.',
+      subject: 'Permintaan Full-stack Development',
+    },
+    {
+      title: 'Mobile Development',
+      body: 'Aplikasi cross-platform dengan React Native dirilis ke iOS dan Android.',
+      subject: 'Permintaan Mobile Development',
+    },
+    {
+      title: 'Mentorship & Kurikulum',
+      body: 'Mendampingi developer dari nol hingga produksi dengan proyek dunia nyata.',
+      subject: 'Permintaan Mentorship',
+    },
+  ],
+};
+
+const items = services[lang];
+const email = 'hi@syaad.dev';
+---
+
+<section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+  <div class="mb-10 flex flex-col items-start gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+    <div>
+      <Badge variant="outline">{t(lang, 'home.services_eyebrow')}</Badge>
+      <h2 class="mt-4 max-w-xl font-display text-4xl leading-tight md:text-5xl">
+        {t(lang, 'home.services_title')}
+      </h2>
+    </div>
+    <Button href={`mailto:${email}`} variant="primary">
+      {t(lang, 'home.services_cta')}
+    </Button>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 md:gap-6">
+    {
+      items.map((service) => (
+        <a
+          href={`mailto:${email}?subject=${encodeURIComponent(service.subject)}`}
+          class="group relative flex min-h-[280px] flex-col overflow-hidden rounded-3xl border border-(--color-border) bg-(--color-bg-secondary) p-8 transition-colors duration-300 ease-out hover:border-(--color-accent) hover:bg-(--color-accent) md:min-h-[320px] md:p-10"
+          aria-label={service.title}
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 400 400"
+            class="pointer-events-none absolute -right-16 top-1/2 h-[340px] w-[340px] -translate-y-1/2 text-(--color-accent-foreground) opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-20"
+          >
+            <circle cx="200" cy="200" r="120" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="260" cy="200" r="120" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="230" cy="160" r="120" fill="none" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+
+          <span
+            class="h-0.5 w-10 bg-(--color-text) transition-colors duration-300 ease-out group-hover:bg-(--color-accent-foreground)"
+            aria-hidden="true"
+          />
+
+          <h3 class="relative mt-6 font-display text-3xl text-(--color-text) transition-colors duration-300 ease-out group-hover:text-(--color-accent-foreground) md:text-4xl">
+            {service.title}
+          </h3>
+
+          <p class="relative mt-4 max-w-md text-sm text-(--color-text-secondary) transition-colors duration-300 ease-out group-hover:text-(--color-accent-foreground)/80 md:text-base">
+            {service.body}
+          </p>
+
+          <span class="relative mt-auto flex items-center justify-end pt-8 text-(--color-text) transition-colors duration-300 ease-out group-hover:text-(--color-accent-foreground)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-6 transition-transform duration-300 ease-out group-hover:-rotate-45 md:size-7"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</section>
