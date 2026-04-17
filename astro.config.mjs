@@ -1,19 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-
-import react from '@astrojs/react';
-import { markdownRender } from './plugins/markdownRender';
+import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()]
-	},
-
-  integrations: [react()],
-  markdown: {
-    rehypePlugins: [markdownRender],
-  },
   site: 'https://syaad.dev',
+  integrations: [sitemap(), icon()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'id'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

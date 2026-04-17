@@ -1,0 +1,206 @@
+---
+import { Icon } from "astro-icon/components";
+import { getLocalizedPath, t, type Locale } from "../../i18n";
+import { socialLinks, EMAIL } from "../../lib/socials";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+
+const pages = [
+  { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
+  { href: "/projects", key: "nav.projects" },
+  { href: "/writings", key: "nav.writings" },
+  { href: "/yapping", key: "nav.yapping" },
+] as const;
+
+const socials = [
+  {
+    type: "iconify" as const,
+    icon: "simple-icons:github",
+    href: socialLinks.github,
+    label: t(lang, "hero.social_github"),
+  },
+  {
+    type: "svg" as const,
+    icon: "mail",
+    href: socialLinks.email,
+    label: t(lang, "hero.social_email"),
+  },
+  {
+    type: "iconify" as const,
+    icon: "simple-icons:linkedin",
+    href: socialLinks.linkedin,
+    label: t(lang, "hero.social_linkedin"),
+  },
+  {
+    type: "iconify" as const,
+    icon: "simple-icons:x",
+    href: socialLinks.x,
+    label: t(lang, "hero.social_x"),
+  },
+  {
+    type: "iconify" as const,
+    icon: "simple-icons:instagram",
+    href: socialLinks.instagram,
+    label: t(lang, "hero.social_instagram"),
+  },
+];
+---
+
+<footer class="mt-24">
+  <section class="bg-zinc-950 text-white border-t border-white/10 border-dashed">
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 md:flex-row md:items-end md:justify-between"
+    >
+      <div>
+        <p class="text-sm uppercase tracking-widest text-zinc-400">
+          {t(lang, "footer.connect_eyebrow")}
+        </p>
+        <h2 class="mt-3 font-display text-5xl leading-tight md:text-6xl">
+          {t(lang, "footer.connect_title")}
+        </h2>
+      </div>
+      <a
+        href={`mailto:${EMAIL}`}
+        class="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-medium text-zinc-950 transition-transform hover:-translate-y-0.5"
+      >
+        {t(lang, "footer.connect_cta")}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4 transition-transform group-hover:translate-x-0.5"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-4">
+        <div class="space-y-3 md:col-span-2">
+          <a
+            href={getLocalizedPath("/", lang)}
+            class="inline-flex items-center gap-2 text-lg font-medium"
+          >
+            <span
+              class="inline-flex size-7 items-center justify-center rounded-md bg-white text-zinc-950 text-sm font-medium font-display"
+            >
+              Ir
+            </span>
+            <span class="font-display">syaad.dev</span>
+          </a>
+          <p class="max-w-sm text-sm text-zinc-400">
+            Irsyaad Budi Prasetianto — Full-stack Engineer. Based in Indonesia
+            🇮🇩, working worldwide.
+          </p>
+        </div>
+
+        <div>
+          <h3
+            class="text-sm font-semibold uppercase tracking-wider text-zinc-300"
+          >
+            {t(lang, "footer.pages_heading")}
+          </h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            {
+              pages.map((p) => (
+                <li>
+                  <a
+                    href={getLocalizedPath(p.href, lang)}
+                    class="text-zinc-400 hover:text-white"
+                  >
+                    {t(lang, p.key)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-sm font-semibold uppercase tracking-wider text-zinc-300"
+          >
+            {t(lang, "footer.socials_heading")}
+          </h3>
+          <ul class="mt-4 flex flex-wrap items-center gap-2">
+            {
+              socials.map((social) => (
+                <li>
+                  <a
+                    href={social.href}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      social.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    aria-label={social.label}
+                    title={social.label}
+                    class="inline-flex size-10 items-center justify-center rounded-full text-zinc-300 transition-colors hover:bg-white/10 hover:text-white"
+                  >
+                    {social.type === "iconify" ? (
+                      <Icon name={social.icon} class="size-4" />
+                    ) : social.icon === "mail" ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <path d="M12 18v-6" />
+                        <path d="m9 15 3 3 3-3" />
+                      </svg>
+                    )}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10">
+        <div class="mx-auto max-w-6xl px-5 py-5 text-xs text-zinc-500">
+          {t(lang, "footer.copyright", { year })}
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>

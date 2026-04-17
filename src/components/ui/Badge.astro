@@ -1,0 +1,29 @@
+---
+interface Props {
+  variant?: 'default' | 'outline' | 'accent' | 'muted';
+  class?: string;
+}
+
+const { variant = 'default', class: className = '' } = Astro.props;
+
+const variants: Record<string, string> = {
+  default:
+    'bg-(--color-bg-secondary) text-(--color-text) border border-(--color-border)',
+  outline:
+    'border border-(--color-border) text-(--color-text-secondary)',
+  accent:
+    'bg-(--color-accent) text-(--color-accent-foreground)',
+  muted:
+    'bg-(--color-bg-tertiary) text-(--color-text-secondary)',
+};
+
+const classes = [
+  'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium',
+  variants[variant],
+  className,
+].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>

@@ -1,0 +1,71 @@
+---
+import { t, type Locale } from '../../i18n';
+import { socialLinks } from '../../lib/socials';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const bio = {
+  en: [
+    "Hi! I'm Irsyaad, a Full-stack Engineer who enjoys building fast, intuitive interfaces while also architecting solid, scalable backend systems. I'm also a mentor and curriculum developer for aspiring engineers.",
+    "Born in 2000, I began my journey in tech through Android and WordPress development during high school. My school's curriculum required three years of study followed by one year of internship, which I completed as part of the IT team at a manufacturing company. This experience exposed me to real-world challenges, strengthened my IT fundamentals, and motivated me to grow further. Since then, I've built web applications using Vue and React on the frontend, Express and PostgreSQL on the backend, and deployed projects with Docker and GitHub Actions.",
+    "I believe great engineers don't just write code—they understand users, systems, and how to connect them. That's why I love sharing what I learn through writing, mentoring, and building learning tools for others.",
+  ],
+  id: [
+    'Halo! Saya Irsyaad, Full-stack Engineer yang suka membangun antarmuka yang cepat dan intuitif, sekaligus merancang sistem backend yang solid dan scalable. Saya juga seorang mentor dan penyusun kurikulum untuk engineer pemula.',
+    'Lahir tahun 2000, perjalanan saya di dunia teknologi dimulai dari pengembangan Android dan WordPress saat SMA. Kurikulum sekolah mewajibkan tiga tahun belajar dan satu tahun magang, yang saya jalani sebagai bagian dari tim IT di sebuah perusahaan manufaktur. Pengalaman ini memperkenalkan saya pada tantangan dunia nyata, memperkuat fundamental IT, dan memotivasi saya untuk terus berkembang. Sejak itu, saya membangun aplikasi web menggunakan Vue dan React di frontend, Express dan PostgreSQL di backend, serta men-deploy proyek dengan Docker dan GitHub Actions.',
+    'Saya percaya engineer yang hebat tidak hanya menulis kode—mereka memahami pengguna, sistem, dan cara menghubungkan keduanya. Karena itu saya suka membagikan yang saya pelajari melalui tulisan, mentorship, dan membangun alat pembelajaran untuk orang lain.',
+  ],
+};
+
+const paragraphs = bio[lang];
+---
+
+<section class="mx-auto max-w-6xl px-5 pt-16 pb-12 md:pt-24">
+  <Badge variant="outline">{t(lang, 'about.eyebrow')}</Badge>
+  <h1 class="mt-4 max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl">
+    {t(lang, 'about.title')}
+  </h1>
+
+  <div class="mt-12 grid gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+    <div class="md:sticky md:top-24 md:self-start">
+      <div class="h-56 w-44 overflow-hidden rounded-3xl bg-(--color-bg-secondary) md:h-72 md:w-56">
+        <img
+          src="/assets/images/photo.png"
+          alt="Irsyaad Budi Prasetianto"
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+      </div>
+      <div class="mt-6 space-y-3 text-sm">
+        <div>
+          <p class="text-(--color-text-muted)">{t(lang, 'about.name_label')}</p>
+          <p class="font-medium">Irsyaad Budi Prasetianto</p>
+        </div>
+        <div>
+          <p class="text-(--color-text-muted)">{t(lang, 'about.role_label')}</p>
+          <p class="font-medium">Full-stack Engineer</p>
+        </div>
+        <Button
+          href={socialLinks.cv}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="secondary"
+          size="sm"
+          class="mt-4"
+        >
+          {t(lang, 'about.download_cv')}
+        </Button>
+      </div>
+    </div>
+
+    <div class="space-y-5 text-base leading-relaxed text-(--color-text-secondary) md:text-lg">
+      {paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>

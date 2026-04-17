@@ -1,24 +1,32 @@
-// 1. Import utilities from `astro:content`
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
-// 2. Import loader(s)
-import { glob } from "astro/loaders";
-
-// 3. Define your collection(s)
 const projects = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/projects" }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    short_description: z.string().optional(),
-    image: z.string(),
-    link: z.string(),
-    featured: z.boolean().optional(),
-    info: z
-      .array(z.object({ title: z.string(), description: z.string() }))
-      .optional(),
+    client: z.string().optional(),
+    role: z.string(),
+    year: z.string(),
+    techStack: z.array(z.string()),
+    heroImage: z.string(),
+    images: z.array(z.string()).optional(),
+    featured: z.boolean().default(false),
+    order: z.number().default(0),
+    externalUrl: z.string().url().optional(),
   }),
 });
 
-// 4. Export a single `collections` object to register your collection(s)
-export const collections = { projects };
+const writings = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/writings' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).optional(),
+    published: z.boolean().default(true),
+  }),
+});
+
+export const collections = { projects, writings };

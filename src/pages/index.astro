@@ -1,42 +1,16 @@
 ---
-import FeaturedProject from "@/components/pages/home/featured-project";
-import Hero from "@/components/pages/home/hero";
-import Main from "@/layouts/main.astro";
-import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/home/Hero.astro";
+import LogoMarquee from "../components/home/LogoMarquee.astro";
+import ServicesBento from "../components/home/ServicesBento.astro";
+import FeaturedProjects from "../components/home/FeaturedProjects.astro";
 
-const projects = await getCollection(
-  "projects",
-  (project) => project.data.featured
-);
-const features = projects
-  .sort((a, b) => {
-    const yearA = a.data.info?.find(
-      (info: any) => info.title === "Year"
-    )?.description;
-    const yearB = b.data.info?.find(
-      (info: any) => info.title === "Year"
-    )?.description;
-    if (yearA && yearB) {
-      return Number(yearB) - Number(yearA);
-    }
-    return 0;
-  })
-  .map((pro) => ({
-    name: pro.data.title,
-    description: pro.data.short_description || pro.data.description,
-    background: pro.data.image,
-    href: `/projects/${pro.id}`,
-    cta: "View detail",
-    className: "lg:col-span-1",
-  }));
-
-const content = {
-  title: "Homepage",
-  description: "Irsyaad Budi's personal website",
-};
+const lang = "en" as const;
 ---
 
-<Main content={content}>
-  <Hero client:load />
-  <FeaturedProject client:load posts={features} />
-</Main>
+<Layout title="Home" lang={lang}>
+  <Hero lang={lang} />
+  <LogoMarquee />
+  <ServicesBento lang={lang} />
+  <FeaturedProjects lang={lang} />
+</Layout>

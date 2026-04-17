@@ -10,7 +10,7 @@ const { lang } = Astro.props;
 const items = getExperiences(lang);
 ---
 
-<section class="mx-auto max-w-4xl px-5 py-16 md:py-24">
+<section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
   <h2 class="font-display text-4xl md:text-5xl">{t(lang, 'about.experience_title')}</h2>
 
   <ol class="relative mt-12 ml-3 border-l border-(--color-border)">
@@ -20,7 +20,7 @@ const items = getExperiences(lang);
           {exp.current && (
             <span
               aria-hidden="true"
-              class="pointer-events-none absolute -left-[7px] top-1.5 inline-flex size-3.5 animate-ping rounded-full bg-(--color-accent) opacity-60"
+              class="pointer-events-none absolute -left-[7px] top-1.5 inline-flex size-3.5 animate-ping rounded-full bg-(--color-accent-underline) opacity-70"
             />
           )}
           <span
@@ -28,7 +28,7 @@ const items = getExperiences(lang);
             aria-label={exp.current ? 'Current role' : undefined}
             class:list={[
               'absolute -left-[5px] top-2 inline-flex size-2.5 rounded-full ring-4 ring-(--color-bg)',
-              exp.current ? 'bg-(--color-accent)' : 'bg-(--color-border)',
+              exp.current ? 'bg-(--color-accent-underline)' : 'bg-(--color-border)',
             ]}
           />
 
@@ -38,7 +38,19 @@ const items = getExperiences(lang);
           <h3 class="mt-2 font-display text-2xl leading-snug md:text-3xl">
             {exp.role}
           </h3>
-          <p class="mt-1 text-sm text-(--color-text-secondary)">
+          <div class="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-(--color-text-secondary)">
+            {exp.companyLogo && (
+              <img
+                src={exp.companyLogo}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                class:list={[
+                  'inline-block size-5 shrink-0 bg-white object-contain p-0.5',
+                  exp.companyLogoRounded ? 'rounded-full object-cover p-0' : 'rounded',
+                ]}
+              />
+            )}
             {exp.companyUrl ? (
               <a
                 href={exp.companyUrl}
@@ -51,9 +63,9 @@ const items = getExperiences(lang);
             ) : (
               <span>{exp.company}</span>
             )}
-            <span class="mx-1.5 opacity-60" aria-hidden="true">·</span>
+            <span class="opacity-60" aria-hidden="true">·</span>
             <span>{exp.location}</span>
-          </p>
+          </div>
 
           {exp.description && (
             <p class="mt-3 text-sm italic text-(--color-text-secondary) md:text-base">

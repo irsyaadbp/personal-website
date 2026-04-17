@@ -1,0 +1,78 @@
+---
+import { t, type Locale } from '../../i18n';
+
+interface Props {
+  headings: { slug: string; text: string; depth: number }[];
+  lang: Locale;
+}
+
+const { headings, lang } = Astro.props;
+const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<aside class="hidden lg:block">
+  <div class="sticky top-24">
+    <p class="text-xs font-semibold uppercase tracking-widest text-(--color-text-muted)">
+      {t(lang, 'projects.contents')}
+    </p>
+    <nav class="mt-4 space-y-1" data-minimap>
+      {
+        filtered.map((h) => (
+          <a
+            href={`#${h.slug}`}
+            data-minimap-link={h.slug}
+            class:list={[
+              'block rounded-lg px-3 py-1.5 text-sm transition-colors',
+              h.depth === 3 ? 'pl-6' : '',
+              'text-(--color-text-secondary) hover:bg-(--color-bg-secondary) hover:text-(--color-text)',
+            ]}
+          >
+            {h.text}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</aside>
+
+<script>
+  function initMinimap() {
+    const minimap = document.querySelector('[data-minimap]');
+    if (!minimap) return;
+    const links = minimap.querySelectorAll<HTMLAnchorElement>('[data-minimap-link]');
+    if (!links.length) return;
+
+    const map = new Map<Element, HTMLAnchorElement>();
+    links.forEach((link) => {
+      const slug = link.getAttribute('data-minimap-link');
+      if (!slug) return;
+      const target = document.getElementById(slug);
+      if (target) {
+        map.set(target, link);
+      }
+    });
+
+    const activeClasses = ['bg-(--color-bg-secondary)', 'text-(--color-text)', 'font-medium'];
+
+    function setActive(el: HTMLAnchorElement) {
+      links.forEach((l) => l.classList.remove(...activeClasses));
+      el.classList.add(...activeClasses);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const link = map.get(entry.target);
+            if (link) setActive(link);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+    );
+
+    map.forEach((_link, target) => observer.observe(target));
+  }
+  initMinimap();
+  document.addEventListener('astro:page-load', initMinimap);
+</script>

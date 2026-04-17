@@ -1,0 +1,42 @@
+---
+import { t, type Locale } from '../../i18n';
+import Badge from '../ui/Badge.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const experiences = [
+  { title: 'Intern → IT Programmer', company: 'CV Karya Hidup Sentosa (Quick)', period: '2019' },
+  { title: 'Software Engineer', company: 'Virus Digital Indonesia', period: '2019 - 2020' },
+  { title: 'Technical Trainer', company: 'Edtech Startup (Freelance)', period: '2021' },
+  { title: 'Frontend Engineer', company: 'Startup', period: '2022 - 2023' },
+  { title: 'Mid. Frontend Engineer', company: 'Privy', period: '2023 - 2025' },
+  { title: 'Mentor & Instructor', company: 'Fastcampus', period: '2024 - Now' },
+];
+---
+
+<section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+  <Badge variant="outline">{t(lang, 'home.experience_eyebrow')}</Badge>
+  <h2 class="mt-4 max-w-2xl font-display text-4xl leading-tight md:text-5xl">
+    {t(lang, 'home.experience_title')}
+  </h2>
+
+  <ul class="mt-12 divide-y divide-(--color-border) border-y border-(--color-border)">
+    {
+      experiences.map((exp) => (
+        <li class="grid grid-cols-[1fr_auto] items-center gap-4 py-5 md:py-6">
+          <div>
+            <p class="font-display text-xl md:text-2xl">{exp.title}</p>
+            <p class="mt-1 text-sm text-(--color-text-secondary)">{exp.company}</p>
+          </div>
+          <span class="rounded-full bg-(--color-bg-secondary) px-4 py-2 text-xs font-medium md:text-sm">
+            {exp.period}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

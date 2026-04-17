@@ -1,0 +1,180 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getLocalizedPath, t, type Locale } from '../../i18n';
+import { socialLinks } from '../../lib/socials';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const socials = [
+  {
+    type: 'iconify' as const,
+    icon: 'simple-icons:github',
+    href: socialLinks.github,
+    label: t(lang, 'hero.social_github'),
+  },
+  {
+    type: 'svg' as const,
+    icon: 'mail',
+    href: socialLinks.email,
+    label: t(lang, 'hero.social_email'),
+  },
+  {
+    type: 'iconify' as const,
+    icon: 'simple-icons:linkedin',
+    href: socialLinks.linkedin,
+    label: t(lang, 'hero.social_linkedin'),
+  },
+  {
+    type: 'iconify' as const,
+    icon: 'simple-icons:x',
+    href: socialLinks.x,
+    label: t(lang, 'hero.social_x'),
+  },
+  {
+    type: 'iconify' as const,
+    icon: 'simple-icons:instagram',
+    href: socialLinks.instagram,
+    label: t(lang, 'hero.social_instagram'),
+  },
+  {
+    type: 'svg' as const,
+    icon: 'cv',
+    href: socialLinks.cv,
+    label: t(lang, 'hero.social_cv'),
+  },
+];
+---
+
+<section class="relative overflow-hidden">
+  <div class="mx-auto flex max-w-4xl flex-col items-center px-5 pt-12 pb-20 text-center md:pt-20 md:pb-28">
+    <div class="relative">
+      <div
+        class="flex size-24 items-center justify-center overflow-hidden rounded-full bg-(--color-bg-secondary) ring-4 ring-(--color-bg) md:size-28"
+      >
+        <img
+          src="/assets/images/photo.png"
+          alt="Irsyaad Budi Prasetianto"
+          class="size-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <p
+      class="mt-6 inline-flex items-center gap-2 text-base font-semibold text-(--color-text) md:text-lg"
+    >
+      {t(lang, 'hero.intro')}
+      <span aria-hidden="true" class="inline-block">🤘</span>
+    </p>
+
+    <h1
+      class="mt-6 font-display text-5xl leading-[1.05] tracking-tight text-(--color-text) sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+    >
+      {t(lang, 'hero.headline_part1')}{' '}
+      <span class="relative inline-block whitespace-nowrap">
+        {t(lang, 'hero.headline_highlight')}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 300 20"
+          preserveAspectRatio="none"
+          class="absolute -bottom-1 left-0 h-3 w-full text-(--color-accent-underline) md:-bottom-2 md:h-4"
+        >
+          <path
+            d="M3 14 Q 60 2, 150 10 T 297 6"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+      </span>{' '}
+      {t(lang, 'hero.headline_part2')}
+    </h1>
+
+    <p
+      class="mt-8 max-w-2xl text-base leading-relaxed text-(--color-text-secondary) md:text-lg"
+      set:html={t(lang, 'hero.description_html')}
+    />
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+      <Button href={getLocalizedPath('/projects', lang)} variant="primary" size="lg">
+        {t(lang, 'hero.cta_work')}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </Button>
+      <Button href={getLocalizedPath('/writings', lang)} variant="secondary" size="lg">
+        {t(lang, 'hero.cta_writings')}
+      </Button>
+    </div>
+
+    <ul class="mt-5 flex flex-wrap items-center justify-center gap-2">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              target={social.href.startsWith('http') ? '_blank' : undefined}
+              rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              aria-label={social.label}
+              title={social.label}
+              class="inline-flex size-10 items-center justify-center rounded-full bg-(--color-bg) text-(--color-text-secondary) transition-colors hover:bg-(--color-bg-secondary) hover:text-(--color-text)"
+            >
+              {social.type === 'iconify' ? (
+                <Icon name={social.icon} class="size-4" />
+              ) : social.icon === 'mail' ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-4"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-4"
+                  aria-hidden="true"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <path d="M12 18v-6" />
+                  <path d="m9 15 3 3 3-3" />
+                </svg>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

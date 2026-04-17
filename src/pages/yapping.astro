@@ -1,68 +1,22 @@
 ---
-import Main from "@/layouts/main.astro";
-import YappingCard from "@/components/pages/yapping/yapping-card";
+import Layout from '../layouts/Layout.astro';
+import YappingList from '../components/yapping/YappingList.astro';
+import { t } from '../i18n';
 
-const content = {
-  title: "Yapping",
-};
-
-const items: any[] = [
-  {
-    date: "Apr 20, 2025",
-    title:
-      "TALK WITH KEMENLU | CLOSING PROJECT STAFF MAGANG - Berkarier Ala Gen Z",
-    author: "BEM STMM Yogyakarta",
-    href: "https://www.youtube.com/watch?v=yJLKPQQUunU",
-  },
-  {
-    date: "Sept 27, 2024",
-    title:
-      "[Paket All-in-One] Jadi Fullstack Developer Hebat dengan PHP, Laravel, Vue JS, dan Nuxt JS",
-    author: "Fastcampus",
-    href: "/projects/fastcampus-fullstack-course",
-  },
-  {
-    date: "May 14, 2024",
-    title: "Jadi Web Developer dari Nol Banget",
-    author: "Edspert.id",
-    href: "https://www.instagram.com/p/C6yR6-SST_C",
-  },
-  {
-    date: "Aug 01, 2023",
-    title: "Mentorship for Acceleration Program",
-    author: "Privy",
-    href: "https://www.linkedin.com/posts/irsyaad-budi_melesatmaju-frontend-activity-7082017272558485504-B4Qe/",
-  },
-  {
-    date: "Mar 19, 2023",
-    title: "Webinar Programming React JS",
-    author: "Edspert.id",
-    href: "https://www.youtube.com/watch?v=vW_Y8C2W-Cs",
-  },
-  {
-    date: "Oct 08, 2021",
-    title: "Learn the basic of react native",
-    author: "Fazztrack",
-    href: "https://www.youtube.com/watch?v=puvM9ImY-_I",
-  },
-];
+const lang = 'en' as const;
 ---
 
-<Main content={content}>
-  <div class="min-h-screen pt-20 container mx-auto px-4">
-    <div class="max-w-4xl mx-auto py-4 lg:py-10">
-      <div class="space-y-0">
-        {
-          items.map((item, index) => (
-            <div>
-              <YappingCard item={item} />
-              {index < items.length - 1 && (
-                <div class="border-b border-border/50" />
-              )}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</Main>
+<Layout title="Yapping" lang={lang}>
+  <section class="mx-auto max-w-6xl px-5 pt-16 pb-12 md:pt-24">
+    <h1 class="font-display text-5xl leading-[0.95] md:text-7xl">
+      {t(lang, 'yapping.title')}
+    </h1>
+    <p class="mt-4 max-w-2xl text-base text-(--color-text-secondary) md:text-lg">
+      {t(lang, 'yapping.subtitle')}
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
+    <YappingList lang={lang} />
+  </section>
+</Layout>

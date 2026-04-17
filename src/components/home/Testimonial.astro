@@ -1,0 +1,41 @@
+---
+import type { Locale } from '../../i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    quote:
+      '"Irsyaad is the kind of engineer you want on any critical project — deeply technical, genuinely curious, and always thinking two steps ahead of the problem."',
+    name: 'Colleague',
+    role: 'Senior Engineer',
+  },
+  id: {
+    quote:
+      '"Irsyaad adalah tipe engineer yang kamu inginkan di setiap proyek penting — sangat teknis, ingin tahu, dan selalu berpikir dua langkah ke depan."',
+    name: 'Rekan kerja',
+    role: 'Senior Engineer',
+  },
+};
+
+const { quote, name, role } = content[lang];
+---
+
+<section class="mx-auto max-w-5xl px-5 py-16 md:py-24">
+  <div class="rounded-3xl border border-(--color-border) bg-(--color-bg-secondary) px-6 py-10 md:px-16 md:py-16">
+    <p class="font-display text-2xl leading-snug md:text-3xl">
+      {quote}
+    </p>
+    <div class="mt-8 flex items-center gap-4">
+      <div class="size-12 rounded-full bg-(--color-bg-tertiary)"></div>
+      <div>
+        <p class="font-medium">{name}</p>
+        <p class="text-sm text-(--color-text-secondary)">{role}</p>
+      </div>
+    </div>
+  </div>
+</section>

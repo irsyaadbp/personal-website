@@ -1,0 +1,45 @@
+---
+import { t, type Locale } from '../../i18n';
+import Badge from '../ui/Badge.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+  <div class="grid gap-10 md:grid-cols-[2fr_1fr] md:items-start">
+    <div>
+      <Badge variant="outline">{t(lang, 'home.about_eyebrow')}</Badge>
+      <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
+        {t(lang, 'home.about_title')}
+      </h2>
+      <div class="mt-8 aspect-[16/9] overflow-hidden rounded-3xl bg-(--color-bg-secondary)">
+        <img
+          src="/assets/images/projects/mountseerah/hero.webp"
+          alt="Featured work"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-6 md:pt-12">
+      <p class="text-base text-(--color-text-secondary)">
+        {t(lang, 'home.about_body')}
+      </p>
+      <div class="grid grid-cols-2 gap-4 md:block md:space-y-6">
+        <div class="rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) p-5">
+          <p class="font-display text-5xl font-medium">+20</p>
+          <p class="mt-2 text-sm text-(--color-text-secondary)">{t(lang, 'home.stats_projects')}</p>
+        </div>
+        <div class="rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) p-5">
+          <p class="font-display text-5xl font-medium">+100</p>
+          <p class="mt-2 text-sm text-(--color-text-secondary)">{t(lang, 'home.stats_mentees')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

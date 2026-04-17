@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "writings": "Tulisan",
+    "yapping": "Obrolan",
+    "connect": "Hubungi saya"
+  },
+  "hero": {
+    "greeting": "Halo,",
+    "intro": "Halo, saya Irsyaad",
+    "title": "Saya Irsyaad Budi",
+    "subtitle": "Full-stack Engineer",
+    "headline_part1": "Merancang",
+    "headline_highlight": "produk digital,",
+    "headline_part2": "antarmuka, dan sistem yang scalable.",
+    "description_html": "Seorang <strong>Full-stack Engineer</strong> dan <strong>Mentor</strong> yang berbasis di Indonesia 🇮🇩. Berfokus membangun aplikasi yang berdampak dan berpusat pada pengguna—menghadirkan antarmuka yang mulus dengan dukungan sistem yang solid dan scalable.",
+    "cta": "Hubungi saya",
+    "email": "hello@syaad.dev",
+    "cta_work": "Lihat karya saya",
+    "cta_writings": "Baca tulisan saya",
+    "social_github": "GitHub",
+    "social_email": "Email",
+    "social_linkedin": "LinkedIn",
+    "social_x": "X (Twitter)",
+    "social_instagram": "Instagram",
+    "social_cv": "Unduh CV"
+  },
+  "home": {
+    "about_eyebrow": "Tentang Saya",
+    "about_title": "Ngoding bukan sekadar pekerjaan — tapi keahlian yang saya asah.",
+    "about_body": "Saya suka membangun antarmuka yang cepat dan intuitif, sekaligus merancang sistem backend yang solid dan scalable. Saya telah merilis produk yang dipakai jutaan pengguna dan turut membimbing para engineer.",
+    "services_eyebrow": "Layanan",
+    "services_title": "Tinjauan lengkap tentang apa yang saya tawarkan dan cara saya bekerja",
+    "services_cta": "Ayo berkolaborasi",
+    "experience_eyebrow": "Pengalaman",
+    "experience_title": "Cuplikan tahunan perjalanan engineering saya",
+    "projects_eyebrow": "Portofolio",
+    "projects_title": "Jelajahi portofolio solusi engineering saya",
+    "projects_subtitle": "Karya pilihan meliputi frontend, full-stack, dan proyek mobile.",
+    "stats_projects": "Proyek dikirim",
+    "stats_mentees": "Developer dibimbing"
+  },
+  "about": {
+    "eyebrow": "Tentang Saya",
+    "title": "6 Tahun Berjalan. Masih Baru Memulai.",
+    "name_label": "Nama",
+    "role_label": "Peran",
+    "experience_title": "Pengalaman Saya",
+    "download_cv": "Unduh CV"
+  },
+  "projects": {
+    "title": "Proyek",
+    "subtitle": "Pilihan produk, platform, dan eksperimen yang saya bangun selama bertahun-tahun.",
+    "detail_client": "Klien",
+    "detail_role": "Peran",
+    "detail_year": "Tahun",
+    "detail_tech": "Tumpukan Teknologi",
+    "contents": "Daftar Isi",
+    "back_to_projects": "Kembali ke proyek",
+    "next_eyebrow": "Proyek berikutnya"
+  },
+  "writings": {
+    "title": "Tulisan",
+    "subtitle": "Catatan dan esai tentang engineering, mentoring, dan keahlian.",
+    "coming_soon_title": "Segera Hadir",
+    "coming_soon_body": "Saya sedang menyiapkan beberapa tulisan. Periksa kembali sebentar lagi."
+  },
+  "yapping": {
+    "title": "Obrolan",
+    "subtitle": "Talks, webinar, dan momen-momen berpendapat."
+  },
+  "footer": {
+    "connect_eyebrow": "Mari terhubung",
+    "connect_title": "Mari Terhubung Di Sini",
+    "connect_cta": "Beritahu saya",
+    "pages_heading": "Halaman",
+    "socials_heading": "Media Sosial",
+    "contact_heading": "Kontak",
+    "copyright": "© {year} syaad.dev. Seluruh hak cipta dilindungi."
+  },
+  "common": {
+    "view_detail": "Lihat detail",
+    "view_all": "Lihat semua",
+    "coming_soon": "Segera Hadir",
+    "read_more": "Selengkapnya"
+  }
+}

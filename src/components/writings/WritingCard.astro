@@ -1,0 +1,31 @@
+---
+import Badge from '../ui/Badge.astro';
+import type { Locale } from '../../i18n';
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  date: Date;
+  tags?: string[];
+  lang: Locale;
+}
+
+const { title, description, date, tags = [] } = Astro.props;
+
+const formatted = new Intl.DateTimeFormat(Astro.props.lang === 'id' ? 'id-ID' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+---
+
+<article class="rounded-3xl border border-(--color-border) bg-(--color-bg-secondary) p-6">
+  <div class="flex items-center gap-2 text-xs text-(--color-text-muted)">
+    <time>{formatted}</time>
+    {tags.length > 0 && <span>•</span>}
+    {tags.map((tag) => <Badge variant="outline">{tag}</Badge>)}
+  </div>
+  <h3 class="mt-4 font-display text-2xl leading-snug md:text-3xl">{title}</h3>
+  <p class="mt-3 text-sm text-(--color-text-secondary)">{description}</p>
+</article>

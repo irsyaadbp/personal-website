@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AboutHero from '../../components/about/AboutHero.astro';
+import ExperienceList from '../../components/about/ExperienceList.astro';
+
+const lang = 'id' as const;
+---
+
+<Layout title="Tentang" lang={lang}>
+  <AboutHero lang={lang} />
+  <ExperienceList lang={lang} />
+</Layout>

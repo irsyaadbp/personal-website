@@ -1,14 +1,12 @@
 ---
-import AboutHero from "@/components/pages/about/hero";
-import Experiences from "@/components/pages/about/experiences";
-import Main from "@/layouts/main.astro";
+import Layout from '../layouts/Layout.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import ExperienceList from '../components/about/ExperienceList.astro';
 
-const content = {
-  title: "About",
-};
+const lang = 'en' as const;
 ---
 
-<Main content={content}>
-  <AboutHero client:load />
-  <Experiences client:load />
-</Main>
+<Layout title="About" lang={lang}>
+  <AboutHero lang={lang} />
+  <ExperienceList lang={lang} />
+</Layout>

@@ -1,0 +1,39 @@
+---
+import { getAlternateLocale, getLocalizedPath, type Locale } from '../../i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const altLocale = getAlternateLocale(lang);
+const currentPath = Astro.url.pathname;
+const altPath = getLocalizedPath(currentPath, altLocale);
+---
+
+<div class="inline-flex items-center gap-1 rounded-full border border-(--color-border) bg-(--color-bg) p-0.5 text-xs font-medium">
+  <a
+    href={getLocalizedPath(currentPath, 'en')}
+    aria-current={lang === 'en' ? 'true' : undefined}
+    class:list={[
+      'rounded-full px-2.5 py-1 transition-colors',
+      lang === 'en'
+        ? 'bg-(--color-accent) text-(--color-accent-foreground)'
+        : 'text-(--color-text-secondary) hover:text-(--color-text)',
+    ]}
+  >
+    EN
+  </a>
+  <a
+    href={getLocalizedPath(currentPath, 'id')}
+    aria-current={lang === 'id' ? 'true' : undefined}
+    class:list={[
+      'rounded-full px-2.5 py-1 transition-colors',
+      lang === 'id'
+        ? 'bg-(--color-accent) text-(--color-accent-foreground)'
+        : 'text-(--color-text-secondary) hover:text-(--color-text)',
+    ]}
+  >
+    ID
+  </a>
+</div>

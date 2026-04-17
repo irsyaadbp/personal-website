@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "writings": "Writings",
+    "yapping": "Yapping",
+    "connect": "Get in touch"
+  },
+  "hero": {
+    "greeting": "Hi,",
+    "intro": "Hi, I'm Irsyaad",
+    "title": "I'm Irsyaad Budi",
+    "subtitle": "Full-stack Engineer",
+    "headline_part1": "Crafting digital",
+    "headline_highlight": "products,",
+    "headline_part2": "interfaces, and scalable systems.",
+    "description_html": "a <strong>Full-stack Engineer</strong> and <strong>Mentor</strong> based in Indonesia 🇮🇩. Focused on building impactful, user-centered applications—crafting seamless interfaces backed by solid and scalable systems.",
+    "cta": "Connect with me",
+    "email": "hello@syaad.dev",
+    "cta_work": "See my work",
+    "cta_writings": "Read my writings",
+    "social_github": "GitHub",
+    "social_email": "Email",
+    "social_linkedin": "LinkedIn",
+    "social_x": "X (Twitter)",
+    "social_instagram": "Instagram",
+    "social_cv": "Download CV"
+  },
+  "home": {
+    "about_eyebrow": "About Me",
+    "about_title": "Code has always been more than just a job — it's my craft.",
+    "about_body": "I enjoy building fast, intuitive interfaces while also architecting solid, scalable backend systems. I've shipped products used by millions and mentor engineers along the way.",
+    "services_eyebrow": "Services",
+    "services_title": "A comprehensive look at what I offer and how I deliver",
+    "services_cta": "Let's work together",
+    "experience_eyebrow": "Experience",
+    "experience_title": "A yearly snapshot of my engineering growth",
+    "projects_eyebrow": "Portfolio",
+    "projects_title": "Explore my portfolio of engineering solutions",
+    "projects_subtitle": "Selected work spanning frontend, full-stack, and mobile projects.",
+    "stats_projects": "Projects shipped",
+    "stats_mentees": "Developers mentored"
+  },
+  "about": {
+    "eyebrow": "About Me",
+    "title": "6 Years In. Still Just Getting Started.",
+    "name_label": "Name",
+    "role_label": "Role",
+    "experience_title": "My Experiences",
+    "download_cv": "Download CV"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of products, platforms, and experiments I've built over the years.",
+    "detail_client": "Client",
+    "detail_role": "Role",
+    "detail_year": "Year",
+    "detail_tech": "Tech Stack",
+    "contents": "Contents",
+    "back_to_projects": "Back to projects",
+    "next_eyebrow": "Next project"
+  },
+  "writings": {
+    "title": "Writings",
+    "subtitle": "Notes and essays on engineering, mentoring, and the craft.",
+    "coming_soon_title": "Coming Soon",
+    "coming_soon_body": "I'm working on a few pieces. Check back shortly."
+  },
+  "yapping": {
+    "title": "Yapping",
+    "subtitle": "Talks, webinars, and the occasional soapbox moment."
+  },
+  "footer": {
+    "connect_eyebrow": "Let's connect",
+    "connect_title": "Let's Connect There",
+    "connect_cta": "Notify me",
+    "pages_heading": "Pages",
+    "socials_heading": "Socials",
+    "contact_heading": "Contact",
+    "copyright": "© {year} syaad.dev. All rights reserved."
+  },
+  "common": {
+    "view_detail": "View detail",
+    "view_all": "View all",
+    "coming_soon": "Coming Soon",
+    "read_more": "Read more"
+  }
+}

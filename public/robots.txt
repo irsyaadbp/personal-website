@@ -1,27 +1,4 @@
-# robots.txt for https://syaad.dev
-
-# Allow search engine
 User-agent: *
-Disallow:
+Allow: /
 
-# Blokir crawler LLM / AI
-User-agent: GPTBot
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-# Tambahkan sitemap
-Sitemap: https://syaad.dev/sitemap.xml
+Sitemap: https://syaad.dev/sitemap-index.xml

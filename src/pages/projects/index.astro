@@ -1,55 +1,27 @@
 ---
-import Main from "@/layouts/main.astro";
-import { getCollection } from "astro:content";
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProjectGrid from '../../components/projects/ProjectGrid.astro';
+import { t } from '../../i18n';
 
-const content = {
-  title: "Projects",
-};
+const lang = 'en' as const;
 
-const projects = await getCollection("projects");
-
-const allProjects: any[] = projects
-  .sort((a, b) => {
-    const yearA = a.data.info?.find(
-      (info: any) => info.title === "Year"
-    )?.description;
-    const yearB = b.data.info?.find(
-      (info: any) => info.title === "Year"
-    )?.description;
-    if (yearA && yearB) {
-      return Number(yearB) - Number(yearA);
-    }
-    return 0;
-  })
-  .map((pro) => ({
-    name: pro.data.title,
-    description: pro.data.short_description || pro.data.description,
-    background: pro.data.image,
-    // link: pro.data.link,
-    href: `/projects/${pro.id}`,
-    cta: "View detail",
-    className: "lg:col-span-1",
-  }));
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 ---
 
-<Main
-  content={content}
-  style={{
-    backgroundImage: "url('/assets/images/projects/line-black.svg')",
-    backgroundRepeat: "repeat",
-    backgroundPosition: "center",
-  }}
->
-  <div class="min-h-screen py-24 md:py-32 lg:py-40 container mx-auto px-4">
-    <div class="max-w-7xl mx-auto">
-      <BentoGrid>
-        {
-          allProjects.map((feature, idx) => (
-            <BentoCard key={idx} {...feature} role="button" client:load />
-          ))
-        }
-      </BentoGrid>
-    </div>
-  </div>
-</Main>
+<Layout title="Projects" lang={lang}>
+  <section class="mx-auto max-w-6xl px-5 pt-16 pb-12 md:pt-24">
+    <h1 class="font-display text-5xl leading-[0.95] md:text-7xl">
+      {t(lang, 'projects.title')}
+    </h1>
+    <p class="mt-4 max-w-2xl text-base text-(--color-text-secondary) md:text-lg">
+      {t(lang, 'projects.subtitle')}
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
+    <ProjectGrid projects={projects} lang={lang} />
+  </section>
+</Layout>

@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getLocalizedPath, t, type Locale } from '../../i18n';
+
+interface Props {
+  next: CollectionEntry<'projects'>;
+  lang: Locale;
+}
+
+const { next, lang } = Astro.props;
+const { data } = next;
+const href = getLocalizedPath(`/projects/${next.id}`, lang);
+---
+
+<section aria-labelledby="next-project-heading" class="mt-16 border-t border-(--color-border) pt-12 md:mt-20 md:pt-16">
+  <h2 id="next-project-heading" class="text-xs font-medium uppercase tracking-[0.14em] text-(--color-text-muted)">
+    {t(lang, 'projects.next_eyebrow')}
+  </h2>
+  <a
+    href={href}
+    class="group mt-5 grid gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:items-start sm:gap-8"
+  >
+    <div class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-(--color-bg-tertiary)">
+      <img
+        src={data.heroImage}
+        alt=""
+        loading="lazy"
+        onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+      />
+      <div class="pointer-events-none absolute inset-0 hidden items-center justify-center text-4xl text-(--color-text-secondary) [.image-fallback_&]:flex">
+        ✦
+      </div>
+    </div>
+    <div class="flex min-w-0 flex-col gap-2 sm:justify-center sm:self-center">
+      <p class="font-display text-2xl leading-snug text-(--color-text) transition-colors group-hover:text-(--color-text-secondary) md:text-3xl">
+        {data.title}
+      </p>
+      <p class="text-xs uppercase tracking-[0.14em] text-(--color-text-secondary)">
+        <span>{data.year}</span>
+        <span class="mx-1.5 opacity-60" aria-hidden="true">·</span>
+        <span>{data.role}</span>
+      </p>
+      <span class="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-(--color-text)">
+        <span>{t(lang, 'common.view_detail')}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </span>
+    </div>
+  </a>
+</section>

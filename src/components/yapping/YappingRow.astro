@@ -1,0 +1,65 @@
+---
+import { getLocalizedPath, type Locale } from '../../i18n';
+
+interface Props {
+  date: string;
+  title: string;
+  author: string;
+  href: string;
+  lang: Locale;
+}
+
+const { date, title, author, href, lang } = Astro.props;
+
+function isExternalHref(h: string) {
+  return h.startsWith('http://') || h.startsWith('https://');
+}
+
+const resolvedHref = isExternalHref(href) ? href : getLocalizedPath(href, lang);
+const external = isExternalHref(href);
+---
+
+<a
+  href={resolvedHref}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class="group relative grid grid-cols-[1fr_auto] items-start gap-x-5 gap-y-1.5 border-b border-(--color-border) py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-bg) md:grid-cols-[8rem_minmax(0,1fr)_auto] md:items-baseline md:gap-x-8 md:py-7"
+>
+  <span
+    class="col-start-1 row-start-1 text-xs font-medium uppercase tracking-[0.12em] text-(--color-text-muted) md:text-[0.7rem]"
+  >
+    {date}
+  </span>
+
+  <div class="col-span-2 col-start-1 row-start-2 min-w-0 md:col-span-1 md:col-start-2 md:row-start-1">
+    <p
+      class="font-display text-xl leading-[1.2] text-(--color-text) transition-colors duration-200 md:text-2xl"
+    >
+      {title}
+    </p>
+    <p
+      class="mt-1 text-sm text-(--color-text-muted) transition-colors duration-200 group-hover:text-(--color-text-secondary)"
+    >
+      {author}
+    </p>
+  </div>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="col-start-2 row-start-1 size-4 shrink-0 text-(--color-text-muted) transition-[color,transform] duration-300 ease-out group-hover:-translate-y-px group-hover:translate-x-px group-hover:text-(--color-text) md:col-start-3 md:mt-1"
+    aria-hidden="true"
+  >
+    <path d="M7 17 17 7M17 7H9M17 7v8"></path>
+  </svg>
+
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-px left-0 h-px w-0 bg-(--color-text) transition-[width] duration-500 ease-out group-hover:w-full"
+  ></span>
+</a>

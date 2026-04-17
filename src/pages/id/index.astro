@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/home/Hero.astro";
+import LogoMarquee from "../../components/home/LogoMarquee.astro";
+import ServicesBento from "../../components/home/ServicesBento.astro";
+import FeaturedProjects from "../../components/home/FeaturedProjects.astro";
+
+const lang = "id" as const;
+---
+
+<Layout title="Beranda" lang={lang}>
+  <Hero lang={lang} />
+  <LogoMarquee />
+  <ServicesBento lang={lang} />
+  <FeaturedProjects lang={lang} />
+</Layout>
