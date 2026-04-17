@@ -1,0 +1,142 @@
+---
+import { getLocalizedPath, stripLocale, t, type Locale } from "../../i18n";
+import ThemeToggle from "./ThemeToggle.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const currentPath = stripLocale(Astro.url.pathname);
+
+const email = t(lang, "hero.email");
+
+const navItems = [
+  { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
+  { href: "/projects", key: "nav.projects" },
+  { href: "/writings", key: "nav.writings" },
+  { href: "/yapping", key: "nav.yapping" },
+] as const;
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+}
+---
+
+<header class="sticky top-0 z-40 bg-(--color-bg)/80 backdrop-blur-md">
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:py-6"
+  >
+    <a
+      href={getLocalizedPath("/", lang)}
+      class="flex items-center gap-2 font-display text-xl font-medium text-(--color-text)"
+    >
+      <span
+        class="inline-flex size-7 items-center justify-center rounded-md bg-(--color-accent) text-(--color-accent-foreground) text-sm font-bold"
+        >Ir</span
+      >
+      <span>syaad.dev</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={getLocalizedPath(item.href, lang)}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class:list={[
+              "relative text-sm font-medium transition-colors",
+              isActive(item.href)
+                ? "text-(--color-text)"
+                : "text-(--color-text-secondary) hover:text-(--color-text)",
+            ]}
+          >
+            {t(lang, item.key)}
+            {isActive(item.href) && (
+              <span
+                aria-hidden="true"
+                class="absolute -bottom-2 left-1/2 size-1 -translate-x-1/2 rounded-full bg-(--color-accent)"
+              />
+            )}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher lang={lang} />
+      <ThemeToggle />
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        class="md:hidden inline-flex size-9 items-center justify-center rounded-full border border-(--color-border) bg-(--color-bg) text-(--color-text)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4"
+          aria-hidden="true"
+        >
+          <line x1="4" x2="20" y1="7" y2="7"></line>
+          <line x1="4" x2="20" y1="17" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-(--color-border) bg-(--color-bg)"
+  >
+    <nav class="mx-auto flex max-w-6xl flex-col px-5 py-3">
+      {
+        navItems.map((item) => (
+          <a
+            href={getLocalizedPath(item.href, lang)}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class:list={[
+              "flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isActive(item.href)
+                ? "bg-(--color-bg-secondary) text-(--color-text)"
+                : "text-(--color-text-secondary) hover:bg-(--color-bg-secondary) hover:text-(--color-text)",
+            ]}
+          >
+            {isActive(item.href) && (
+              <span
+                aria-hidden="true"
+                class="size-1.5 rounded-full bg-(--color-accent)"
+              />
+            )}
+            <span>{t(lang, item.key)}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    if (!toggle || !menu || toggle.dataset.bound === "true") return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const hidden = menu.classList.toggle("hidden");
+      toggle.setAttribute("aria-expanded", hidden ? "false" : "true");
+    });
+  }
+  initMobileMenu();
+  document.addEventListener("astro:page-load", initMobileMenu);
+</script>
