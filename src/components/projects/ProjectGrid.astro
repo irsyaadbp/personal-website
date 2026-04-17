@@ -1,0 +1,27 @@
+---
+import type { Locale } from '../../i18n';
+import ProjectCard from './ProjectCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  lang: Locale;
+}
+
+const { projects, lang } = Astro.props;
+---
+
+<div class="grid gap-x-8 gap-y-14 md:grid-cols-2">
+  {
+    projects.map((project) => (
+      <ProjectCard
+        slug={project.id}
+        title={project.data.title}
+        heroImage={project.data.heroImage}
+        year={project.data.year}
+        role={project.data.role}
+        lang={lang}
+      />
+    ))
+  }
+</div>

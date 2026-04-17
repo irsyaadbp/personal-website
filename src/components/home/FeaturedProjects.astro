@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import { getLocalizedPath, t, type Locale } from '../../i18n';
+import Badge from '../ui/Badge.astro';
+import ProjectCard from '../projects/ProjectCard.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const allProjects = await getCollection('projects');
+const featured = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+---
+
+<section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+  <div class="mb-10 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <Badge variant="outline">{t(lang, 'home.projects_eyebrow')}</Badge>
+      <h2 class="mt-4 max-w-2xl font-display text-4xl leading-tight md:text-5xl">
+        {t(lang, 'home.projects_title')}
+      </h2>
+      <p class="mt-4 max-w-xl text-(--color-text-secondary)">
+        {t(lang, 'home.projects_subtitle')}
+      </p>
+    </div>
+    <a
+      href={getLocalizedPath('/projects', lang)}
+      class="inline-flex items-center gap-2 text-sm font-medium text-(--color-text) underline-offset-4 hover:underline"
+    >
+      {t(lang, 'common.view_all')}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true">
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div class="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+    {
+      featured.map((project) => (
+        <ProjectCard
+          slug={project.id}
+          title={project.data.title}
+          heroImage={project.data.heroImage}
+          year={project.data.year}
+          role={project.data.role}
+          lang={lang}
+        />
+      ))
+    }
+  </div>
+</section>

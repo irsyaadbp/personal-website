@@ -1,0 +1,41 @@
+---
+import { getLocalizedPath, type Locale } from '../../i18n';
+
+interface Props {
+  slug: string;
+  title: string;
+  heroImage: string;
+  year: string;
+  role: string;
+  lang: Locale;
+}
+
+const { slug, title, heroImage, year, role, lang } = Astro.props;
+const href = getLocalizedPath(`/projects/${slug}`, lang);
+---
+
+<a href={href} class="group flex flex-col gap-5">
+  <div class="relative aspect-[16/10] overflow-hidden rounded-2xl bg-(--color-bg-tertiary)">
+    <img
+      src={heroImage}
+      alt={title}
+      loading="lazy"
+      onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+      class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+    />
+    <div class="pointer-events-none absolute inset-0 hidden items-center justify-center text-4xl text-(--color-text-secondary) [.image-fallback_&]:flex">
+      ✦
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <h3 class="font-display text-xl leading-snug text-(--color-text) transition-colors group-hover:text-(--color-text-secondary) md:text-2xl">
+      {title}
+    </h3>
+    <p class="text-xs uppercase tracking-[0.14em] text-(--color-text-secondary)">
+      <span>{year}</span>
+      <span class="mx-1.5 opacity-60" aria-hidden="true">·</span>
+      <span>{role}</span>
+    </p>
+  </div>
+</a>
