@@ -30,6 +30,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title} | syaad.dev</title>
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon-light.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="alternate icon" href="/favicon.ico" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | syaad.dev`} />
