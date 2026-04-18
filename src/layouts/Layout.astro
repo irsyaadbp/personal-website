@@ -36,7 +36,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       href="/favicon-light.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <link rel="alternate icon" href="/favicon.ico" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | syaad.dev`} />
@@ -54,9 +53,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     />
 
     <script is:inline>
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('dark');
+      function applyStoredTheme() {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       }
+
+      applyStoredTheme();
+      document.addEventListener('astro:after-swap', applyStoredTheme);
     </script>
     <ClientRouter />
   </head>
