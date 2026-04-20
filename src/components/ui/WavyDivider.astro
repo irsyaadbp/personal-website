@@ -1,0 +1,32 @@
+---
+interface Props {
+  flip?: boolean;
+  class?: string;
+}
+
+const { flip = false, class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'wavy-divider w-full overflow-hidden leading-[0]',
+    flip && 'rotate-180',
+    className,
+  ]}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 80"
+    preserveAspectRatio="none"
+    class="block h-[30px] w-full md:h-[50px]"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0,40 C120,70 240,-10 360,40 C480,70 600,-10 720,40 C840,70 960,-10 1080,40 C1200,70 1320,-10 1440,40"
+      fill="none"
+      stroke="var(--color-border)"
+      stroke-width="1.5"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
+</div>

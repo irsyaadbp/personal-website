@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import WavyDivider from '../ui/WavyDivider.astro';
 
 interface TechItem {
   name: string;
@@ -30,7 +31,8 @@ const techs: TechItem[] = [
 ];
 ---
 
-<section class="border-y border-(--color-border) py-10 md:py-14">
+<WavyDivider />
+<section class="py-10 md:py-14">
   <div class="overflow-hidden">
     <div class="marquee flex w-max items-center gap-12 pr-12 whitespace-nowrap md:gap-16">
       {
@@ -47,3 +49,4 @@ const techs: TechItem[] = [
     </div>
   </div>
 </section>
+<WavyDivider flip />
