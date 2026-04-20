@@ -6,6 +6,7 @@ role: "Mentor & Instructor"
 year: "2024"
 techStack: ["PHP", "Laravel", "Vue.js", "Nuxt.js", "MySQL", "Nginx"]
 heroImage: "/assets/images/projects/fastcampus-fullstack-course/hero.webp"
+externalUrl: "https://fastcampus.com/id/products/dev_online_laravel"
 featured: true
 order: 3
 ---

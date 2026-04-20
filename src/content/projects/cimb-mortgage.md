@@ -6,6 +6,7 @@ role: "Frontend Engineer"
 year: "2021"
 techStack: ["Nuxt 2", "Vue 2", "Vuex", "Vuetify", "Ruby on Rails"]
 heroImage: "/assets/images/projects/cimb-mortgage/hero.webp"
+externalUrl: "https://apply.cimbniaga.co.id/kpr/form"
 featured: false
 order: 9
 ---

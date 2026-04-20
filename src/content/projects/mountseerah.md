@@ -6,6 +6,7 @@ role: "Frontend Web Developer"
 year: "2025"
 techStack: ["React", "TypeScript", "Laravel"]
 heroImage: "/assets/images/projects/mountseerah/hero.webp"
+externalUrl: "https://mountseerah.com/"
 featured: true
 order: 1
 ---

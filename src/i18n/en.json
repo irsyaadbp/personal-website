@@ -59,7 +59,8 @@
     "detail_tech": "Tech Stack",
     "contents": "Contents",
     "back_to_projects": "Back to projects",
-    "next_eyebrow": "Next project"
+    "next_eyebrow": "Next project",
+    "visit_project": "Visit Project"
   },
   "writings": {
     "title": "Writings",

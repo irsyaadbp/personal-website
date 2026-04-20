@@ -6,6 +6,7 @@ role: "Frontend & CMS Developer"
 year: "2023"
 techStack: ["Nuxt 2", "Vue.js", "Laravel", "MySQL"]
 heroImage: "/assets/images/projects/bdrcoal/hero.webp"
+externalUrl: "https://bdrcoal.co.id"
 featured: false
 order: 6
 ---

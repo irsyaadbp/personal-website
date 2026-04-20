@@ -42,16 +42,31 @@ const { data } = project;
     <p class="mt-5 max-w-3xl text-base text-(--color-text-secondary) md:text-lg">
       {data.description}
     </p>
+
+    {data.externalUrl && (
+      <a
+        href={data.externalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="visit-project-btn group mt-6 inline-flex items-center gap-2.5 rounded-full border border-(--color-border) bg-(--color-bg-secondary) px-6 py-3 text-sm font-medium text-(--color-text) transition-all duration-300 hover:border-(--color-accent) hover:bg-(--color-accent) hover:text-(--color-accent-foreground) hover:shadow-lg"
+      >
+        {t(lang, 'projects.visit_project')}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true">
+          <path d="M7 17L17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </a>
+    )}
   </section>
 
   <section class="mx-auto max-w-6xl px-5 pb-10">
-    <div class="aspect-[16/9] overflow-hidden rounded-3xl bg-(--color-bg-secondary)">
+    <div class="overflow-hidden rounded-3xl bg-(--color-bg-secondary)">
       <img
         src={data.heroImage}
         alt={data.title}
         loading="lazy"
         onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
-        class="h-full w-full object-cover"
+        class="h-auto w-full"
       />
       <div class="pointer-events-none hidden h-full items-center justify-center text-6xl text-(--color-text-secondary) [.image-fallback_&]:flex">
         ✦

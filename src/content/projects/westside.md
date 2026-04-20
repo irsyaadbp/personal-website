@@ -6,6 +6,7 @@ role: "WordPress Developer"
 year: "2024"
 techStack: ["WordPress", "Elementor", "ACF", "PHP"]
 heroImage: "/assets/images/projects/westside/hero.webp"
+externalUrl: "https://westside.net.au"
 featured: true
 order: 5
 ---

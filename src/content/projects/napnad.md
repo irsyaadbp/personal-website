@@ -6,6 +6,7 @@ role: "Frontend Engineer"
 year: "2025"
 techStack: ["React", "Next.js", "Solidity", "zkTLS", "Node.js", "PostgreSQL"]
 heroImage: "/assets/images/projects/napnad/hero.webp"
+externalUrl: "https://github.com/NapNad"
 featured: false
 order: 2
 ---

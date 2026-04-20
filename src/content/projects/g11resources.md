@@ -6,6 +6,7 @@ role: "Frontend & WordPress Developer"
 year: "2024"
 techStack: ["WordPress", "Elementor", "ACF", "Custom CMS"]
 heroImage: "/assets/images/projects/g11resources/hero.webp"
+externalUrl: "https://g11resources.com.au/"
 featured: true
 order: 4
 ---

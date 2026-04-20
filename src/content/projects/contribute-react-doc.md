@@ -6,7 +6,7 @@ role: "Translator (Open Source)"
 year: "2023"
 techStack: ["Markdown", "Git", "GitHub"]
 heroImage: "/assets/images/projects/contribute-react-doc/hero.webp"
-externalUrl: "https://id.react.dev/learn/referencing-values-with-refs"
+externalUrl: "https://github.com/reactjs/id.react.dev/pull/479"
 featured: true
 order: 7
 ---
