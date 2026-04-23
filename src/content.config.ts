@@ -26,6 +26,8 @@ const writings = defineCollection({
     date: z.coerce.date(),
     tags: z.array(z.string()).optional(),
     published: z.boolean().default(true),
+    heroImage: z.string().optional(),
+    imageCredit: z.string().optional(),
   }),
 });
 

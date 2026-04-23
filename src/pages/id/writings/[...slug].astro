@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import WritingLayout from '../../../components/writings/WritingLayout.astro';
+
+export async function getStaticPaths() {
+  const writings = await getCollection('writings');
+  return writings
+    .filter((w) => w.data.published)
+    .map((w) => ({
+      params: { slug: w.id },
+      props: { writing: w },
+    }));
+}
+
+const lang = 'id' as const;
+const { writing } = Astro.props;
+const { Content, headings } = await render(writing);
+const { data } = writing;
+---
+
+<Layout title={data.title} description={data.description} lang={lang} ogImage={data.heroImage}>
+  <WritingLayout writing={writing} lang={lang} headings={headings} showEnglishArticleNote={true}>
+    <Content />
+  </WritingLayout>
+</Layout>

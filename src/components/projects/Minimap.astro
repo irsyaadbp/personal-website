@@ -4,16 +4,18 @@ import { t, type Locale } from '../../i18n';
 interface Props {
   headings: { slug: string; text: string; depth: number }[];
   lang: Locale;
+  /** i18n key for the sidebar label (e.g. writings.contents) */
+  contentsKey?: string;
 }
 
-const { headings, lang } = Astro.props;
+const { headings, lang, contentsKey = 'projects.contents' } = Astro.props;
 const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
 
 <aside class="hidden lg:block">
   <div class="sticky top-24">
     <p class="text-xs font-semibold uppercase tracking-widest text-(--color-text-muted)">
-      {t(lang, 'projects.contents')}
+      {t(lang, contentsKey)}
     </p>
     <nav class="mt-4 space-y-1" data-minimap>
       {

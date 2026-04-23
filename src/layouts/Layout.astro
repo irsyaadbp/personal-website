@@ -9,15 +9,23 @@ interface Props {
   title: string;
   description?: string;
   lang?: Locale;
+  /** Absolute or site-relative image URL for Open Graph (e.g. /assets/... or full URL) */
+  ogImage?: string;
 }
 
 const {
   title,
   description = "Irsyaad Budi Prasetianto - Full-stack Engineer. Building fast, intuitive interfaces and scalable backend systems.",
   lang = 'en',
+  ogImage,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = ogImage
+  ? ogImage.startsWith('http')
+    ? ogImage
+    : new URL(ogImage.startsWith('/') ? ogImage : `/${ogImage}`, Astro.site).href
+  : null;
 ---
 
 <!doctype html>
@@ -44,6 +52,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | syaad.dev`} />
     <meta name="twitter:description" content={description} />
+    {ogImageUrl && (
+      <>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta name="twitter:image" content={ogImageUrl} />
+      </>
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

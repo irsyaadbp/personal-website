@@ -1,0 +1,173 @@
+---
+import Minimap from '../projects/Minimap.astro';
+import Badge from '../ui/Badge.astro';
+import { getLocalizedPath, t, type Locale } from '../../i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  writing: CollectionEntry<'writings'>;
+  lang: Locale;
+  headings: { slug: string; text: string; depth: number }[];
+  /** On `/id/...` routes, show a short English notice that a translation will follow. */
+  showEnglishArticleNote?: boolean;
+}
+
+const { writing, lang, headings, showEnglishArticleNote = false } = Astro.props;
+const { data } = writing;
+
+const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(data.date);
+---
+
+<section class="mx-auto max-w-6xl px-5 pt-12 pb-8 md:pt-16">
+  <a
+    href={getLocalizedPath('/writings', lang)}
+    class="inline-flex items-center gap-2 text-sm text-(--color-text-secondary) hover:text-(--color-text)"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="size-4"
+      aria-hidden="true"
+    >
+      <path d="m12 19-7-7 7-7"></path>
+      <path d="M19 12H5"></path>
+    </svg>
+    {t(lang, 'writings.back_to_writings')}
+  </a>
+
+  <h1 class="mt-6 font-display text-5xl leading-[0.95] md:text-6xl">{data.title}</h1>
+  <p class="mt-5 max-w-3xl text-base text-(--color-text-secondary) md:text-lg">{data.description}</p>
+
+  <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-(--color-text-muted)">
+    <time datetime={data.date.toISOString()}>{dateFormatted}</time>
+    {
+      data.tags && data.tags.length > 0 && (
+        <>
+          <span aria-hidden="true">•</span>
+          {data.tags.map((tag) => (
+            <Badge variant="outline">{tag}</Badge>
+          ))}
+        </>
+      )
+    }
+  </div>
+</section>
+
+{
+  data.heroImage && (
+    <section class="mx-auto max-w-6xl px-5 pb-6">
+      <div class="overflow-hidden rounded-3xl bg-(--color-bg-secondary)">
+        <img
+          src={data.heroImage}
+          alt=""
+          loading="eager"
+          onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+          class="h-auto w-full"
+        />
+        <div class="pointer-events-none hidden h-full min-h-32 items-center justify-center text-6xl text-(--color-text-secondary) [.image-fallback_&]:flex">
+          ✦
+        </div>
+      </div>
+      {data.imageCredit && (
+        <p
+          class="mt-3 text-xs text-(--color-text-muted) [&_a]:text-(--color-text-secondary) [&_a]:underline [&_a]:underline-offset-2"
+          set:html={data.imageCredit}
+        />
+      )}
+    </section>
+  )
+}
+
+<section class="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
+  <div class="grid gap-10 lg:grid-cols-[1fr_220px] lg:gap-16">
+    <div>
+      {
+        showEnglishArticleNote && (
+          <p
+            class="mb-8 rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) px-4 py-3 text-sm text-(--color-text-secondary)"
+            lang="en"
+          >
+            {t(lang, 'writings.article_english_note')}
+          </p>
+        )
+      }
+      <div lang="en">
+        <article class="prose-writings">
+          <slot />
+        </article>
+      </div>
+    </div>
+
+    <Minimap headings={headings} lang={lang} contentsKey="writings.contents" />
+  </div>
+</section>
+
+<style is:global>
+  .prose-writings {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .prose-writings h2 {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-writings h3 {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-writings p {
+    margin-bottom: 1.25rem;
+  }
+  .prose-writings ul,
+  .prose-writings ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+  }
+  .prose-writings li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
+  }
+  .prose-writings ol li {
+    list-style-type: decimal;
+  }
+  .prose-writings a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-writings strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  .prose-writings code {
+    background-color: var(--color-bg-secondary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.375rem;
+    font-size: 0.875em;
+  }
+  .prose-writings hr {
+    border-color: var(--color-border);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

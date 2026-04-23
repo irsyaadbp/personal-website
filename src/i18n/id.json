@@ -66,7 +66,10 @@
     "title": "Tulisan",
     "subtitle": "Catatan dan esai tentang engineering, mentoring, dan keahlian.",
     "coming_soon_title": "Segera Hadir",
-    "coming_soon_body": "Saya sedang menyiapkan beberapa tulisan. Periksa kembali sebentar lagi."
+    "coming_soon_body": "Saya sedang menyiapkan beberapa tulisan. Periksa kembali sebentar lagi.",
+    "back_to_writings": "Back to writings",
+    "contents": "Contents",
+    "article_english_note": "This article is in English. An Indonesian translation will be added when ready."
   },
   "yapping": {
     "title": "Obrolan",

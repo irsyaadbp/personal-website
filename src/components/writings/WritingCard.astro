@@ -1,6 +1,6 @@
 ---
 import Badge from '../ui/Badge.astro';
-import type { Locale } from '../../i18n';
+import { getLocalizedPath, type Locale } from '../../i18n';
 
 interface Props {
   slug: string;
@@ -9,23 +9,45 @@ interface Props {
   date: Date;
   tags?: string[];
   lang: Locale;
+  heroImage?: string;
 }
 
-const { title, description, date, tags = [] } = Astro.props;
+const { slug, title, description, date, tags = [], lang, heroImage } = Astro.props;
+const href = getLocalizedPath(`/writings/${slug}`, lang);
 
-const formatted = new Intl.DateTimeFormat(Astro.props.lang === 'id' ? 'id-ID' : 'en-US', {
+const formatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 }).format(date);
 ---
 
-<article class="rounded-3xl border border-(--color-border) bg-(--color-bg-secondary) p-6">
-  <div class="flex items-center gap-2 text-xs text-(--color-text-muted)">
-    <time>{formatted}</time>
-    {tags.length > 0 && <span>•</span>}
-    {tags.map((tag) => <Badge variant="outline">{tag}</Badge>)}
+<a href={href} class="group flex flex-col overflow-hidden rounded-3xl border border-(--color-border) bg-(--color-bg-secondary) p-0 text-left transition-[border-color,box-shadow] hover:border-(--color-accent) hover:shadow-md">
+  {
+    heroImage && (
+      <div class="relative aspect-[16/10] w-full overflow-hidden border-b border-(--color-border) bg-(--color-bg-tertiary)">
+        <img
+          src={heroImage}
+          alt=""
+          loading="lazy"
+          onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+          class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+        />
+        <div class="pointer-events-none absolute inset-0 hidden items-center justify-center text-4xl text-(--color-text-secondary) [.image-fallback_&]:flex">
+          ✦
+        </div>
+      </div>
+    )
+  }
+  <div class="p-6">
+    <div class="flex items-center gap-2 text-xs text-(--color-text-muted)">
+      <time>{formatted}</time>
+      {tags.length > 0 && <span>•</span>}
+      {tags.map((tag) => <Badge variant="outline">{tag}</Badge>)}
+    </div>
+    <h3 class="mt-4 font-display text-2xl leading-snug text-(--color-text) transition-colors group-hover:text-(--color-text) md:text-3xl">
+      {title}
+    </h3>
+    <p class="mt-3 text-sm text-(--color-text-secondary)">{description}</p>
   </div>
-  <h3 class="mt-4 font-display text-2xl leading-snug md:text-3xl">{title}</h3>
-  <p class="mt-3 text-sm text-(--color-text-secondary)">{description}</p>
-</article>
+</a>
