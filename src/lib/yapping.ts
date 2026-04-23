@@ -7,6 +7,13 @@ export interface Yap {
 
 export const yaps: Yap[] = [
   {
+    date: 'Dec 20, 2025',
+    title:
+      'Kenapa AI malah bikin kita takut ketinggalan padahal belajar terus',
+    author: 'jogjadevs.org',
+    href: 'https://www.instagram.com/p/DSc2wL3D8iO/',
+  },
+  {
     date: 'Apr 20, 2025',
     title:
       'TALK WITH KEMENLU | CLOSING PROJECT STAFF MAGANG - Berkarier Ala Gen Z',
