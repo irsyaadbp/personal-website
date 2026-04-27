@@ -88,8 +88,8 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
 }
 
 <section class="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
-  <div class="grid gap-10 lg:grid-cols-[1fr_220px] lg:gap-16">
-    <div>
+  <div class="grid min-w-0 gap-10 lg:grid-cols-[1fr_220px] lg:gap-16">
+    <div class="min-w-0">
       {
         showEnglishArticleNote && (
           <p
@@ -100,8 +100,8 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
           </p>
         )
       }
-      <div lang="en">
-        <article class="prose-writings">
+      <div class="min-w-0" lang="en">
+        <article class="prose-writings max-w-full">
           <slot />
         </article>
       </div>
@@ -116,6 +116,7 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
     color: var(--color-text-secondary);
     font-size: 1rem;
     line-height: 1.7;
+    min-width: 0;
   }
   .prose-writings h2 {
     color: var(--color-text);
@@ -156,10 +157,12 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
     text-underline-offset: 2px;
   }
   .prose-writings .prose-writings-aside-note {
+    position: relative;
     margin-top: 1.25rem;
     margin-bottom: 0;
     font-size: 0.9375rem;
     color: var(--color-text-secondary);
+    overflow-x: clip;
   }
   .prose-writings .prose-writings-link-soon {
     position: relative;
@@ -206,6 +209,16 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
       transform: translate(-50%, 0);
     }
   }
+  @media (hover: none) {
+    .prose-writings .prose-writings-link-soon {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .prose-writings .prose-writings-link-soon--open::after {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .prose-writings .prose-writings-link-soon::after {
       transition: opacity 0.12s ease;
@@ -223,6 +236,9 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
   }
   .prose-writings pre,
   .prose-writings pre.shiki {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     padding: 1rem 1.125rem;
@@ -247,4 +263,71 @@ const dateFormatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US',
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+  .prose-writings .prose-writings-reference {
+    min-width: 0;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .prose-writings .prose-writings-reference a {
+    word-break: break-all;
+    color: var(--color-text-secondary);
+  }
 </style>
+
+<script is:inline>
+  (function initProseLinkSoonTooltips() {
+    function isNoHover() {
+      return window.matchMedia('(hover: none)').matches
+    }
+    function closeAll() {
+      document.querySelectorAll('.prose-writings-link-soon--open').forEach(function (el) {
+        el.classList.remove('prose-writings-link-soon--open')
+        el.setAttribute('aria-expanded', 'false')
+      })
+    }
+    function toggleThis(el) {
+      var wasOpen = el.classList.contains('prose-writings-link-soon--open')
+      closeAll()
+      if (!wasOpen) {
+        el.classList.add('prose-writings-link-soon--open')
+        el.setAttribute('aria-expanded', 'true')
+      }
+    }
+    var docBound = false
+    function onDocClick(e) {
+      if (!isNoHover()) return
+      var t = e.target
+      if (t && t.closest && t.closest('.prose-writings-link-soon')) return
+      closeAll()
+    }
+    function bind() {
+      document.querySelectorAll('.prose-writings-link-soon').forEach(function (el) {
+        if (el.getAttribute('data-prose-link-soon-bound')) return
+        el.setAttribute('data-prose-link-soon-bound', '1')
+        el.addEventListener('click', function (e) {
+          if (!isNoHover()) return
+          e.stopPropagation()
+          toggleThis(el)
+        })
+        el.addEventListener('keydown', function (e) {
+          if (!isNoHover()) return
+          if (e.key !== 'Enter' && e.key !== ' ') return
+          e.preventDefault()
+          e.stopPropagation()
+          toggleThis(el)
+        })
+      })
+      if (!docBound) {
+        docBound = true
+        document.addEventListener('click', onDocClick, true)
+      }
+    }
+    bind()
+    document.addEventListener('astro:page-load', bind)
+  })()
+</script>

@@ -62,7 +62,7 @@ Nuxt’s `useFetch` is a bit different. Under the hood it builds on `useAsyncDat
 
 It also explains why the docs warn against calling `useFetch` in the wrong place (for example, only in `onMounted` or from arbitrary functions without care): you can end up with more than one data entry, or a shape that does not line up with how Nuxt keys and deduplicates that payload, because **the key is everything** there too.
 
-<p class="prose-writings-aside-note" lang="en">Off topic but related: a follow-up piece, <span class="prose-writings-link-soon" data-tooltip="Coming soon" role="link" aria-label="Nuxt 3 mistakes I have made, coming soon" aria-disabled="true" tabindex="-1">Nuxt 3 mistakes I have made</span>, is in the works.</p>
+<p class="prose-writings-aside-note" lang="en">Off topic but related: a follow-up piece, <span class="prose-writings-link-soon" data-tooltip="Coming soon" role="button" aria-label="Nuxt 3 mistakes I have made, coming soon" aria-expanded="false" tabindex="0">Nuxt 3 mistakes I have made</span>, is in the works.</p>
 
 ## The key is everything
 
@@ -166,4 +166,4 @@ It is still cache, but it lives in **memory** on the user’s device. When the p
 
 I still find it useful to ask **how my data is staying in sync with the server**, not only whether the label “cache” matches what I pictured.
 
-Reference: [https://github.com/TanStack/query/discussions/3219](https://github.com/TanStack/query/discussions/3219)
+<p class="prose-writings-reference" lang="en">Reference: <a href="https://github.com/TanStack/query/discussions/3219">https://github.com/TanStack/query/discussions/3219</a></p>
