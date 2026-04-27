@@ -39,10 +39,10 @@ const formatted = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-US', {
       </div>
     )
   }
-  <div class="p-6">
-    <div class="flex items-center gap-2 text-xs text-(--color-text-muted)">
-      <time>{formatted}</time>
-      {tags.length > 0 && <span>•</span>}
+  <div class="min-w-0 p-6">
+    <div class="flex w-full min-w-0 flex-wrap items-center gap-x-2 gap-y-2 text-xs text-(--color-text-muted)">
+      <time class="shrink-0">{formatted}</time>
+      {tags.length > 0 && <span class="hidden shrink-0 sm:inline" aria-hidden="true">•</span>}
       {tags.map((tag) => <Badge variant="outline">{tag}</Badge>)}
     </div>
     <h3 class="mt-4 font-display text-2xl leading-snug text-(--color-text) transition-colors group-hover:text-(--color-text) md:text-3xl">
