@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AboutHero from '../components/about/AboutHero.astro';
+import GithubContributions from '../components/about/GithubContributions.astro';
 import ExperienceList from '../components/about/ExperienceList.astro';
 
 const lang = 'en' as const;
@@ -8,5 +9,6 @@ const lang = 'en' as const;
 
 <Layout title="About" lang={lang}>
   <AboutHero lang={lang} />
+  <GithubContributions lang={lang} />
   <ExperienceList lang={lang} />
 </Layout>

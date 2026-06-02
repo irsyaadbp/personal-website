@@ -1,0 +1,36 @@
+---
+import { t, type Locale } from '../../i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+// Title translation if needed (we fallback to 'GitHub Contributions' or 'Kontribusi GitHub')
+const title = lang === 'id' ? 'Kontribusi GitHub' : 'GitHub Contributions';
+---
+
+<section class="mx-auto max-w-6xl px-5 py-4 md:py-8">
+  <div class="w-full overflow-x-auto rounded-3xl bg-(--color-bg-secondary) p-6 md:p-10 border border-(--color-border)">
+    <div class="min-w-[750px]">
+      <div class="mb-4 flex items-center justify-between">
+        <h3 class="font-display text-xl md:text-2xl">{title}</h3>
+        <a 
+          href="https://github.com/irsyaadbp" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="text-sm text-(--color-text-secondary) hover:text-(--color-text) underline-offset-4 hover:underline"
+        >
+          @irsyaadbp
+        </a>
+      </div>
+      <img
+        src="https://ghchart.rshah.org/40c463/irsyaadbp"
+        alt="Irsyaad's GitHub Contributions"
+        class="w-full"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
