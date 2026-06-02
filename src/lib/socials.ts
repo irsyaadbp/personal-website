@@ -6,7 +6,7 @@ export const EMAIL = 'hello@syaad.dev';
  */
 export const socialLinks = {
   github: 'https://github.com/irsyaadbp',
-  email: `mailto:${EMAIL}`,
+  email: '#contact-email',
   linkedin: 'https://www.linkedin.com/in/irsyaad-budi/',
   x: 'https://x.com/irsyaadbp',
   instagram: 'https://instagram.com/irsyaadbp',

@@ -91,6 +91,13 @@ const ogImageUrl = ogImage
       applyStoredTheme();
       document.addEventListener('astro:after-swap', applyStoredTheme);
     </script>
+    <script is:inline>
+      document.addEventListener('astro:page-load', function() {
+        document.querySelectorAll('a[href="#contact-email"]').forEach(function(link) {
+          link.setAttribute('href', 'mailto:hello' + '@' + 'syaad.dev');
+        });
+      });
+    </script>
     <ClientRouter />
   </head>
   <body class="min-h-screen bg-(--color-bg) text-(--color-text)">
