@@ -1,18 +1,19 @@
 ---
-import { getLocalizedPath, type Locale } from '../../i18n';
+import { getLocalizedPath, type Locale } from "../../i18n";
 
 interface Props {
   date: string;
   title: string;
   author: string;
   href: string;
+  image?: string;
   lang: Locale;
 }
 
-const { date, title, author, href, lang } = Astro.props;
+const { date, title, author, href, image, lang } = Astro.props;
 
 function isExternalHref(h: string) {
-  return h.startsWith('http://') || h.startsWith('https://');
+  return h.startsWith("http://") || h.startsWith("https://");
 }
 
 const resolvedHref = isExternalHref(href) ? href : getLocalizedPath(href, lang);
@@ -21,9 +22,9 @@ const external = isExternalHref(href);
 
 <a
   href={resolvedHref}
-  target={external ? '_blank' : undefined}
-  rel={external ? 'noopener noreferrer' : undefined}
-  class="group relative grid grid-cols-[1fr_auto] items-start gap-x-5 gap-y-1.5 border-b border-(--color-border) py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-bg) md:grid-cols-[8rem_minmax(0,1fr)_auto] md:items-baseline md:gap-x-8 md:py-7"
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+  class="group relative grid grid-cols-[1fr_auto] items-start gap-x-5 gap-y-1.5 border-b border-(--color-border) py-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-bg) md:grid-cols-[8rem_minmax(0,1fr)_auto] md:items-baseline md:gap-x-8 md:py-16"
 >
   <span
     class="col-start-1 row-start-1 text-xs font-medium uppercase tracking-[0.12em] text-(--color-text-muted) md:text-[0.7rem]"
@@ -31,7 +32,9 @@ const external = isExternalHref(href);
     {date}
   </span>
 
-  <div class="col-span-2 col-start-1 row-start-2 min-w-0 md:col-span-1 md:col-start-2 md:row-start-1">
+  <div
+    class="col-span-2 col-start-1 row-start-2 min-w-0 md:col-span-1 md:col-start-2 md:row-start-1 transition-all duration-300"
+  >
     <p
       class="font-display text-xl leading-[1.2] text-(--color-text) transition-colors duration-200 md:text-2xl"
     >
@@ -42,6 +45,19 @@ const external = isExternalHref(href);
     >
       {author}
     </p>
+
+    {
+      image && (
+        <div class="mt-5 block md:hidden">
+          <img
+            src={image}
+            alt={title}
+            class="aspect-video w-full max-w-sm rounded-xl object-cover shadow-sm ring-1 ring-(--color-border)"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
   </div>
 
   <svg
@@ -57,6 +73,19 @@ const external = isExternalHref(href);
   >
     <path d="M7 17 17 7M17 7H9M17 7v8"></path>
   </svg>
+
+  {
+    image && (
+      <div class="pointer-events-none absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 translate-x-4 -rotate-3 scale-95 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:rotate-3 group-hover:scale-100 group-hover:opacity-100 md:block md:right-12">
+        <img
+          src={image}
+          alt={title}
+          class="aspect-video w-64 rounded-xl object-cover shadow-2xl ring-1 ring-(--color-border)"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
 
   <span
     aria-hidden="true"
